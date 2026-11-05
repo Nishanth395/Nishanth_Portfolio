@@ -1,0 +1,226 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { brandDossier } from "@/content/dossier";
+import { ArrowUpRight, ShieldCheck, CheckCircle2, Layers, Briefcase, Lightbulb, Compass } from "lucide-react";
+
+export function CommercialProvenance() {
+  const milestone = brandDossier.commercialMilestone;
+
+  return (
+    <section
+      id="ventures"
+      aria-labelledby="ventures-heading"
+      className="w-full hairline-b bg-canvas py-16 sm:py-20 lg:py-24 transition-colors"
+    >
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-8 mb-10 hairline-b gap-6">
+          <div>
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="w-1.5 h-1.5 bg-cobalt inline-block" aria-hidden="true" />
+              <span className="font-mono text-xs uppercase tracking-widest text-cobalt font-semibold">
+                COMMERCIAL PROVENANCE // CLIENT DELIVERY
+              </span>
+            </div>
+            <h2
+              id="ventures-heading"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-ink-primary"
+            >
+              Real-World Commercial Delivery
+            </h2>
+          </div>
+
+          <div className="flex items-center gap-3 font-mono text-xs text-ink-meta">
+            <span className="px-3 py-1 bg-surface hairline-border text-cobalt font-semibold">
+              COMMERCIAL VALIDATION #01
+            </span>
+            <span className="hidden sm:inline text-hairline">|</span>
+            <span className="hidden sm:inline">PAID BUSINESS ENGAGEMENT</span>
+          </div>
+        </div>
+
+        {/* Master Case Study Container */}
+        <div className="hairline-border bg-surface/30 p-6 sm:p-8 lg:p-12">
+          {/* Top Heading & Positioning */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pb-8 mb-8 hairline-b">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-cobalt/10 text-cobalt font-mono text-[10px] uppercase tracking-wider font-semibold hairline-border mb-3">
+                <Briefcase className="w-3.5 h-3.5" />
+                <span>FIRST COMMERCIAL WEBSITE DELIVERY</span>
+              </div>
+              <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink-primary tracking-tight mb-4 leading-tight">
+                {milestone.headline}
+              </h3>
+              <p className="font-sans text-base sm:text-lg text-ink-secondary leading-relaxed">
+                {milestone.subheadline}
+              </p>
+            </div>
+
+            <div className="lg:col-span-5 bg-canvas p-6 hairline-border flex flex-col justify-between">
+              <div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-ink-meta mb-2">
+                  CLIENT &amp; DOMAIN
+                </div>
+                <div className="font-serif text-2xl text-ink-primary font-normal mb-1">
+                  {milestone.clientName}
+                </div>
+                <div className="font-mono text-xs text-cobalt uppercase tracking-wider mb-4">
+                  {milestone.projectDomain}
+                </div>
+                <p className="font-sans text-xs sm:text-sm text-ink-secondary leading-relaxed">
+                  {milestone.clientContext}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 hairline-t flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-ink-meta">
+                  Status: Deployed &amp; Live
+                </span>
+                <a
+                  href={milestone.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-cobalt text-white font-mono text-xs uppercase tracking-wider hover:bg-cobalt-hover transition-colors shadow-sm focus-visible:outline-2 focus-visible:outline-cobalt"
+                >
+                  <span>Visit Live Website</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Genuine Client Website Screenshot & Visual Framing */}
+          <div className="mb-10 hairline-border bg-canvas overflow-hidden">
+            <div className="hairline-b bg-surface-raised px-4 py-2.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-ink-meta">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 border border-cobalt inline-block" />
+                <span className="font-semibold text-ink-primary">VERIFIED PRODUCTION DEPLOYMENT</span>
+                <span className="text-hairline">|</span>
+                <span>SRIBALAJIINTERIOR.COM</span>
+              </div>
+              <span className="text-cobalt font-medium">AUTHENTIC ASSET</span>
+            </div>
+
+            <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-surface-recessed flex items-center justify-center overflow-hidden">
+              <Image
+                src="/images/sri_balaji_live.png"
+                alt="Sri Balaji Interiors verified live website deployment"
+                width={1280}
+                height={600}
+                className="w-full h-full object-cover object-top border-0"
+              />
+            </div>
+
+            <div className="hairline-t bg-surface px-4 py-2 flex flex-col sm:flex-row items-start sm:items-center justify-between text-[10px] font-mono text-ink-meta gap-1">
+              <span>CAPTURED FROM PRODUCTION DOMAIN (SRIBALAJIINTERIORS.COM)</span>
+              <span>SECTORS: RESIDENTIAL INTERIORS • CORIAN SOLID SURFACES</span>
+            </div>
+          </div>
+
+          {/* 3-Column Detailed Analysis Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* Column 1: Objectives & Scope */}
+            <div className="p-6 bg-canvas hairline-border flex flex-col justify-between">
+              <div>
+                <div className="font-mono text-xs uppercase tracking-widest text-cobalt font-semibold mb-3 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Business Objectives</span>
+                </div>
+                <ul className="space-y-2.5 font-sans text-xs sm:text-sm text-ink-secondary">
+                  {milestone.businessObjectives.map((obj, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="font-mono text-[10px] text-cobalt shrink-0 mt-0.5">•</span>
+                      <span>{obj}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-6 pt-4 hairline-t">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-ink-meta mb-1">
+                  Verified Stack:
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {milestone.stack.map((t) => (
+                    <span
+                      key={t}
+                      className="px-2 py-0.5 bg-surface hairline-border font-mono text-[10px] uppercase text-ink-primary"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2: Delivery Process & Role */}
+            <div className="p-6 bg-canvas hairline-border flex flex-col justify-between">
+              <div>
+                <div className="font-mono text-xs uppercase tracking-widest text-cobalt font-semibold mb-3 flex items-center gap-2">
+                  <Layers className="w-4 h-4" />
+                  <span>Delivery Process</span>
+                </div>
+                <div className="space-y-2 font-sans text-xs sm:text-sm text-ink-secondary">
+                  {milestone.deliveryProcess.map((step, i) => (
+                    <div key={i} className="p-2 bg-surface/60 hairline-border text-xs">
+                      {step}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 pt-4 hairline-t">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-ink-meta mb-1">
+                  My Contribution:
+                </div>
+                <div className="font-sans text-xs text-ink-primary font-medium">
+                  {milestone.role}
+                </div>
+              </div>
+            </div>
+
+            {/* Column 3: Commercial Lessons Learned */}
+            <div className="p-6 bg-canvas hairline-border flex flex-col justify-between">
+              <div>
+                <div className="font-mono text-xs uppercase tracking-widest text-cobalt font-semibold mb-3 flex items-center gap-2">
+                  <Lightbulb className="w-4 h-4" />
+                  <span>Commercial Learnings</span>
+                </div>
+                <ul className="space-y-2.5 font-sans text-xs sm:text-sm text-ink-secondary">
+                  {milestone.lessonsLearned.map((lesson, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="font-mono text-[10px] text-cobalt shrink-0 mt-0.5">0{i + 1}</span>
+                      <span>{lesson}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-6 pt-4 hairline-t">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-cobalt flex items-center gap-1 font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Factual Commercial Ledger</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Executive Narrative Callout */}
+          <div className="p-6 sm:p-8 bg-surface hairline-border">
+            <div className="font-mono text-[10px] uppercase tracking-widest text-cobalt font-semibold mb-2">
+              BUILDER REFLECTION
+            </div>
+            <p className="font-serif text-lg sm:text-xl text-ink-primary italic leading-relaxed mb-4">
+              &ldquo;{milestone.narrative}&rdquo;
+            </p>
+            <div className="font-mono text-xs text-ink-meta uppercase tracking-wider">
+              Nishanth Adepu • Software Engineering &amp; Commercial Discovery
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
