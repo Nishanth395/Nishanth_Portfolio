@@ -3,8 +3,8 @@
 # ==============================================================================
 
 [build.environment]
-  # Suppress secrets scanning for public email addresses used as routing variables.
-  # Netlify's scanner checks if any env var value appears in client bundles;
-  # because adepunishanth1@gmail.com is publicly displayed on the folio (footer/mailto),
-  # this prevents false-positive secret leakage alerts.
-  SECRETS_SCAN_OMIT_KEYS = "CONTACT_RECIPIENT_EMAIL,CONTACT_SENDER_EMAIL"
+  # Suppress secrets scanning for public identifiers and contact emails.
+  # Netlify's scanner checks if any env var value appears in build/function output.
+  # FIREBASE_PROJECT_ID is a public project identifier embedded by the Firestore SDK.
+  # CONTACT_RECIPIENT_EMAIL is publicly displayed on the folio (footer/mailto).
+  SECRETS_SCAN_OMIT_KEYS = "CONTACT_RECIPIENT_EMAIL,CONTACT_SENDER_EMAIL,FIREBASE_PROJECT_ID"
