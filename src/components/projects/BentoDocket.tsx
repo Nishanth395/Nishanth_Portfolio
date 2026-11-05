@@ -63,14 +63,14 @@ export function BentoDocket() {
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-1.5 h-1.5 bg-cobalt inline-block" aria-hidden="true" />
               <span className="font-mono text-xs uppercase tracking-widest text-cobalt font-semibold">
-                SELECTED PROJECTS DOCKET // 0{brandDossier.projects.length} RECORDS
+                FEATURED WORK // 0{brandDossier.projects.length} VERIFIED SYSTEMS
               </span>
             </div>
             <h2
               id="work-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-ink-primary"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-primary"
             >
-              Architectural &amp; Applied Work
+              Engineered Products &amp; AI Systems
             </h2>
           </div>
 

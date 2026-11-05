@@ -26,7 +26,7 @@ export function CommercialProvenance() {
             </div>
             <h2
               id="ventures-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-ink-primary"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-primary"
             >
               Real-World Commercial Delivery
             </h2>
@@ -50,7 +50,7 @@ export function CommercialProvenance() {
                 <Briefcase className="w-3.5 h-3.5" />
                 <span>FIRST COMMERCIAL WEBSITE DELIVERY</span>
               </div>
-              <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink-primary tracking-tight mb-4 leading-tight">
+              <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink-primary tracking-tight mb-4 leading-tight">
                 {milestone.headline}
               </h3>
               <p className="font-sans text-base sm:text-lg text-ink-secondary leading-relaxed">

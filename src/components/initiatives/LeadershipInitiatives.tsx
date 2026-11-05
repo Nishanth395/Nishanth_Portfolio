@@ -26,7 +26,7 @@ export function LeadershipInitiatives() {
             </div>
             <h2
               id="leadership-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-ink-primary"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-primary"
             >
               Initiatives Beyond Code
             </h2>

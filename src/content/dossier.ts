@@ -7,9 +7,9 @@ export const brandDossier: PersonalProfile = {
   subTitle: "Artificial Intelligence • Software Engineering • Product Development • Entrepreneurship",
   location: "Hyderabad, India",
   timezone: "UTC+05:30",
-  heroHeadline: "I BUILD IDEAS INTO DIGITAL REALITY.",
+  heroHeadline: "BUILDING INTELLIGENT SYSTEMS & DIGITAL PRODUCTS THAT SCALE.",
   heroSubtitle:
-    "I explore artificial intelligence, build software products and turn real-world problems into practical solutions.",
+    "I explore artificial intelligence, engineer scalable software products, and transform complex real-world challenges into high-performance digital reality.",
   bioShort:
     "I'm Nishanth, an emerging technologist and student builder passionate about creating technology that solves real-world problems. My journey extends beyond writing code into product development, business solutions, and early entrepreneurship.",
   bioFull:

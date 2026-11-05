@@ -167,7 +167,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
             </div>
             <h2
               id="contact-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-ink-primary"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-primary"
             >
               Let&apos;s build something that matters.
             </h2>

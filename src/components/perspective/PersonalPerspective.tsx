@@ -25,7 +25,7 @@ export function PersonalPerspective() {
             </div>
             <h2
               id="about-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-ink-primary"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-primary"
             >
               Perspective, Principles &amp; Ambition
             </h2>

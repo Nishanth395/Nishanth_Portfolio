@@ -77,7 +77,7 @@ export function HeaderFolio() {
             <span className="text-hairline hidden sm:inline">|</span>
             <span className="hidden sm:inline">{brandDossier.location.toUpperCase()}</span>
             <span className="text-hairline hidden md:inline">|</span>
-            <span className="hidden md:inline">DISPATCH SPEC: EDITORIAL</span>
+            <span className="hidden md:inline">SYSTEM STATUS: ALL SYSTEMS NOMINAL</span>
           </div>
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <span className="hidden sm:inline text-ink-meta text-[10px]">UTC+05:30</span>
@@ -93,7 +93,7 @@ export function HeaderFolio() {
             className="group flex flex-col focus-visible:outline-2 focus-visible:outline-cobalt focus-visible:outline-offset-4 min-w-0 shrink"
             aria-label="Nishanth - AI Product Builder & Software Developer Home"
           >
-            <span className="font-serif text-lg sm:text-2xl font-normal tracking-tight text-ink-primary group-hover:text-cobalt transition-colors leading-none truncate">
+            <span className="font-display text-lg sm:text-2xl font-bold tracking-tight text-ink-primary group-hover:text-cobalt transition-colors leading-none truncate">
               NISHANTH
             </span>
             <span className="font-mono text-[8px] sm:text-[10px] uppercase tracking-widest text-ink-meta mt-1 truncate">

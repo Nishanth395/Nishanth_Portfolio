@@ -41,17 +41,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["var(--font-newsreader)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        mono: ["var(--font-jetbrains)", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
-      },
-      borderRadius: {
-        none: "0px",
-        DEFAULT: "0px",
-        sm: "0px",
-        md: "0px",
-        lg: "0px",
-        full: "0px",
+        display: ["'Space Grotesk'", "var(--font-inter)", "-apple-system", "sans-serif"],
+        serif: ["'Space Grotesk'", "var(--font-inter)", "-apple-system", "sans-serif"],
+        sans: ["'Plus Jakarta Sans'", "var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        mono: ["var(--font-jetbrains)", "'JetBrains Mono'", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       spacing: {
         "18": "4.5rem",

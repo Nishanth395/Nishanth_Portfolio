@@ -53,7 +53,7 @@ export function JournalDocket() {
             </div>
             <h2
               id="journal-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-ink-primary"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-primary"
             >
               Journal &amp; Research Docket
             </h2>

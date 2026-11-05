@@ -40,7 +40,7 @@ export function CapabilityGrid() {
             </div>
             <h2
               id="capabilities-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-ink-primary"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-primary"
             >
               Core Capabilities &amp; Disciplines
             </h2>
