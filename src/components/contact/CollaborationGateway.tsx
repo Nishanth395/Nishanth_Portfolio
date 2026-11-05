@@ -255,7 +255,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
             {/* Operating Grounding Ledger */}
             <div className="p-5 bg-surface/40 hairline-border font-mono text-[11px] text-ink-meta space-y-2">
               <div className="flex items-center justify-between text-ink-secondary">
-                <span>LOCATION: BENGALURU, INDIA</span>
+                <span>LOCATION: {brandDossier.location.toUpperCase()}</span>
                 <span className="text-cobalt">UTC+05:30</span>
               </div>
               <div>TYPICAL RESPONSE: WITHIN 24 TO 48 HOURS</div>
@@ -566,7 +566,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
             <span>DIRECT INBOX: ADEPU.NISHANTH • ALL COMMUNICATIONS RESPECT PRIVACY</span>
           </div>
           <div className="text-ink-secondary">
-            BENGALURU, INDIA • 2026
+            {brandDossier.location.toUpperCase()} • 2026
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ export const brandDossier: PersonalProfile = {
   legalName: "Nishanth Adepu",
   title: "AI Product Builder & Software Developer",
   subTitle: "Artificial Intelligence • Software Engineering • Product Development • Entrepreneurship",
-  location: "Bengaluru, India",
+  location: "Hyderabad, India",
   timezone: "UTC+05:30",
   heroHeadline: "I BUILD IDEAS INTO DIGITAL REALITY.",
   heroSubtitle:
@@ -259,7 +259,7 @@ export const brandDossier: PersonalProfile = {
       businessObjectives: [
         "Establish an authoritative digital presence to share during client pitches and residential consultations.",
         "Provide a structured online catalog easily accessible via WhatsApp links and social channels.",
-        "Facilitate direct commercial inquiries from homeowners across Bengaluru.",
+        "Facilitate direct commercial inquiries from homeowners across Hyderabad.",
       ],
       deliveryProcess: [
         "Phase 1: Initial client consultation, requirement gathering, and portfolio asset collection.",
@@ -295,7 +295,7 @@ export const brandDossier: PersonalProfile = {
     subheadline:
       "Turning web development skills into a real business delivery. I built and sold a website for Sri Balaji Interiors, marking my first commercial website project.",
     clientContext:
-      "Sri Balaji Interiors is an interior contracting, custom woodwork, and Corian solid surface fabrication firm based in Bengaluru. Prior to our collaboration, the business operated without a dedicated digital asset, relying primarily on direct referrals and in-person consultations.",
+      "Sri Balaji Interiors is an interior contracting, custom woodwork, and Corian solid surface fabrication firm based in Hyderabad. Prior to our collaboration, the business operated without a dedicated digital asset, relying primarily on direct referrals and in-person consultations.",
     businessObjectives: [
       "Establish an authoritative digital presence to display completed residential and commercial craftsmanship.",
       "Provide a clean digital showcase to share during client pitches and residential consultations.",

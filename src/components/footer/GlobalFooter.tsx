@@ -55,7 +55,7 @@ export function GlobalFooter() {
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
               <div className="text-[11px] text-ink-meta">
-                Verified Direct Inbox • Bengaluru, India • UTC+05:30
+                Verified Direct Inbox • {brandDossier.location} • UTC+05:30
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@ export function GlobalFooter() {
               &copy; {currentYear} Nishanth Adepu. All rights reserved. Zero fabricated claims.
             </div>
             <div>
-              Crafted as an authentic personal publication • Bengaluru, India
+              Crafted as an authentic personal publication • {brandDossier.location}
             </div>
           </div>
         </div>

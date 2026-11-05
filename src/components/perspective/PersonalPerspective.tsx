@@ -116,7 +116,7 @@ export function PersonalPerspective() {
                 </p>
 
                 <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-surface hairline-border font-mono text-[10px] uppercase text-ink-meta">
-                  <span>Bengaluru, India</span>
+                  <span>{brandDossier.location}</span>
                   <span>•</span>
                   <span>Student Builder</span>
                 </div>

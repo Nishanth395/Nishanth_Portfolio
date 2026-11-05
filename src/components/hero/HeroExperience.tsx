@@ -95,7 +95,7 @@ export function HeroExperience() {
                     Location &amp; Time
                   </div>
                   <div className="font-sans text-xs sm:text-sm font-medium text-ink-primary">
-                    Bengaluru, India
+                    {brandDossier.location}
                   </div>
                   <div className="font-mono text-[10px] text-ink-meta">UTC+05:30 (IST)</div>
                 </div>

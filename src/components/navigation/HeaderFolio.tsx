@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { StatusBeacon } from "@/components/ui/StatusBeacon";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { brandDossier } from "@/content/dossier";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 interface NavItem {
@@ -74,7 +75,7 @@ export function HeaderFolio() {
             <span className="font-semibold text-ink-secondary hidden sm:inline">FOLIO 2026 // NO. 01</span>
             <span className="font-semibold text-ink-secondary sm:hidden">FOLIO &apos;26</span>
             <span className="text-hairline hidden sm:inline">|</span>
-            <span className="hidden sm:inline">BENGALURU, INDIA</span>
+            <span className="hidden sm:inline">{brandDossier.location.toUpperCase()}</span>
             <span className="text-hairline hidden md:inline">|</span>
             <span className="hidden md:inline">DISPATCH SPEC: EDITORIAL</span>
           </div>

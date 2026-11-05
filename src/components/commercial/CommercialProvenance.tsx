@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { brandDossier } from "@/content/dossier";
-import { ArrowUpRight, ShieldCheck, CheckCircle2, Layers, Briefcase, Lightbulb, Compass } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, CheckCircle2, Layers, Briefcase, Lightbulb, Compass, Lock, Globe } from "lucide-react";
 
 export function CommercialProvenance() {
   const milestone = brandDossier.commercialMilestone;
@@ -91,31 +91,78 @@ export function CommercialProvenance() {
             </div>
           </div>
 
-          {/* Genuine Client Website Screenshot & Visual Framing */}
-          <div className="mb-10 hairline-border bg-canvas overflow-hidden">
-            <div className="hairline-b bg-surface-raised px-4 py-2.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-ink-meta">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 border border-cobalt inline-block" />
-                <span className="font-semibold text-ink-primary">VERIFIED PRODUCTION DEPLOYMENT</span>
-                <span className="text-hairline">|</span>
-                <span>SRIBALAJIINTERIOR.COM</span>
+          {/* Elegant Browser Mockup Showcase */}
+          <div className="mb-10 hairline-border bg-gradient-to-b from-surface/80 via-surface/40 to-surface/20 p-3 sm:p-5 lg:p-6">
+            {/* Browser Window Frame */}
+            <div className="rounded-lg hairline-border bg-canvas shadow-xl overflow-hidden">
+              {/* Browser Header / Navigation Bar */}
+              <div className="hairline-b bg-surface-raised px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+                {/* Left: Window Control Dots & Tab */}
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1.5" aria-hidden="true">
+                    <span className="w-3 h-3 rounded-full bg-[#EF4444]/90 border border-black/10 inline-block" />
+                    <span className="w-3 h-3 rounded-full bg-[#F59E0B]/90 border border-black/10 inline-block" />
+                    <span className="w-3 h-3 rounded-full bg-[#10B981]/90 border border-black/10 inline-block" />
+                  </div>
+                  <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-hairline font-mono text-[11px] text-ink-secondary">
+                    <Globe className="w-3.5 h-3.5 text-cobalt" />
+                    <span className="truncate max-w-[200px] md:max-w-xs">Sri Balaji Interiors — Live Delivery</span>
+                  </div>
+                </div>
+
+                {/* Center: Interactive URL Pill */}
+                <a
+                  href={milestone.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-1.5 bg-canvas hairline-border rounded-md font-mono text-xs text-ink-primary hover:border-cobalt transition-colors group mx-auto sm:mx-0 shadow-xs"
+                  title="Open live website in new tab"
+                >
+                  <Lock className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                  <span className="font-medium text-ink-primary group-hover:text-cobalt transition-colors">
+                    https://sribalajiinterior.com
+                  </span>
+                  <ArrowUpRight className="w-3 h-3 text-ink-meta group-hover:text-cobalt transition-colors" />
+                </a>
+
+                {/* Right: Verified Live Status */}
+                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-ink-meta">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block" />
+                  <span className="text-emerald-700 dark:text-emerald-400 font-semibold hidden md:inline">
+                    LIVE PRODUCTION DEPLOYMENT
+                  </span>
+                  <span className="text-emerald-700 dark:text-emerald-400 font-semibold md:hidden">
+                    LIVE
+                  </span>
+                </div>
               </div>
-              <span className="text-cobalt font-medium">AUTHENTIC ASSET</span>
-            </div>
 
-            <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-surface-recessed flex items-center justify-center overflow-hidden">
-              <Image
-                src="/images/sri_balaji_live.png"
-                alt="Sri Balaji Interiors verified live website deployment"
-                width={1280}
-                height={600}
-                className="w-full h-full object-cover object-top border-0"
-              />
-            </div>
+              {/* Viewport: Full 16:10 Presentation with Subtle Depth */}
+              <div className="relative w-full aspect-[16/10] bg-surface-recessed overflow-hidden ring-1 ring-black/5 dark:ring-white/10">
+                <Image
+                  src="/images/sri_balaji_live.png"
+                  alt="Sri Balaji Interiors verified live website deployment"
+                  width={1280}
+                  height={800}
+                  priority
+                  className="w-full h-full object-cover object-top"
+                />
+                {/* Subtle bottom shadow overlay to anchor the frame */}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
 
-            <div className="hairline-t bg-surface px-4 py-2 flex flex-col sm:flex-row items-start sm:items-center justify-between text-[10px] font-mono text-ink-meta gap-1">
-              <span>CAPTURED FROM PRODUCTION DOMAIN (SRIBALAJIINTERIORS.COM)</span>
-              <span>SECTORS: RESIDENTIAL INTERIORS • CORIAN SOLID SURFACES</span>
+              {/* Browser Status & Provenance Footer */}
+              <div className="hairline-t bg-surface px-4 py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between text-[10px] font-mono text-ink-meta gap-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cobalt inline-block" />
+                  <span>AUTHENTIC CLIENT ASSET // CAPTURED FROM PRODUCTION DOMAIN (SRIBALAJIINTERIOR.COM)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span>LOCATION: HYDERABAD, INDIA</span>
+                  <span className="hidden md:inline text-hairline">|</span>
+                  <span className="hidden md:inline">SECTORS: RESIDENTIAL INTERIORS • CORIAN SOLID SURFACES</span>
+                </div>
+              </div>
             </div>
           </div>
 
