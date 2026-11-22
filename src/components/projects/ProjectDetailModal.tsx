@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import { useModalFocus } from "@/components/ui/useModalFocus";
 import { ProjectDossier } from "@/types";
 import { X, ArrowUpRight, ShieldCheck, CheckCircle2, AlertCircle, Layers, Cpu, Compass } from "lucide-react";
 import { StatusBeacon } from "@/components/ui/StatusBeacon";
@@ -15,38 +16,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Lock body scroll and handle Escape key
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const trigger = document.activeElement;
-    const previousOverflow = document.body.style.overflow;
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-      if (event.key !== "Tab") return;
-      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>("button:not([disabled]), a[href]");
-      if (!focusable?.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
-    closeButtonRef.current?.focus();
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-      if (trigger instanceof HTMLElement) trigger.focus();
-    };
-  }, [isOpen, onClose]);
+  useModalFocus(isOpen, onClose, dialogRef, closeButtonRef);
 
   if (!isOpen || !project) return null;
 

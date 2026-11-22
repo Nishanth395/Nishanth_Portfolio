@@ -6,9 +6,8 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const links = [
   ["Work", "#work"],
-  ["Ventures", "#ventures"],
-  ["About", "#about"],
-  ["Journal", "#journal"],
+  ["Studio", "#about"],
+  ["Notes", "#journal"],
 ];
 
 export function HeaderFolio() {
@@ -35,7 +34,7 @@ export function HeaderFolio() {
           </nav>
           <div className="folio-nav-actions">
             <ThemeToggle />
-            <a href="#contact" className="folio-button folio-button-outline nav-contact" onClick={() => setOpen(false)}>Let’s talk <ArrowUpRight size={16} aria-hidden="true" /></a>
+            <a href="#contact" className="folio-button folio-button-outline nav-contact" onClick={() => setOpen(false)}>Contact <ArrowUpRight size={16} aria-hidden="true" /></a>
             <button className="folio-menu" type="button" ref={trigger} onClick={() => setOpen(!open)} aria-controls="portfolio-navigation" aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
               {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
             </button>

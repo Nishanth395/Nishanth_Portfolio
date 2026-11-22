@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
+    <html data-theme="darkroom"
       lang="en"
       suppressHydrationWarning
     >
@@ -38,8 +38,7 @@ export default function RootLayout({
                   if (saved === 'darkroom' || saved === 'broadsheet') {
                     document.documentElement.setAttribute('data-theme', saved);
                   } else {
-                    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    document.documentElement.setAttribute('data-theme', prefersDark ? 'darkroom' : 'broadsheet');
+                    document.documentElement.setAttribute('data-theme', 'darkroom');
                   }
                 } catch (e) {}
               })();

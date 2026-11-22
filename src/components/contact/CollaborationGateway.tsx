@@ -1,5 +1,7 @@
 "use client";
 
+import { ContactExhibit } from "@/components/spatial/ContactExhibit";
+
 import React, { useState } from "react";
 import { brandDossier } from "@/content/dossier";
 import { Mail, ArrowUpRight, CheckCircle2, AlertCircle, Copy, Send, Sparkles, ShieldCheck } from "lucide-react";
@@ -155,21 +157,21 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
       aria-labelledby="contact-heading"
       className="w-full hairline-b bg-canvas py-16 sm:py-20 lg:py-24 transition-colors"
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="folio-shell">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-8 mb-10 hairline-b gap-6">
           <div>
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-1.5 h-1.5 bg-cobalt inline-block" aria-hidden="true" />
               <span className="font-mono text-xs uppercase tracking-widest text-cobalt font-semibold">
-                COLLABORATION GATEWAY // DIRECT ACCESS
+                CONTACT
               </span>
             </div>
             <h2
               id="contact-heading"
               className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink-primary"
             >
-              Let&apos;s build something that matters.
+              Let&apos;s work together.
             </h2>
           </div>
 
@@ -184,17 +186,18 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
           {/* LEFT COLUMN: Verified Channels & Direct Routing (5 Cols)  */}
           {/* ========================================================= */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+            <ContactExhibit />
             {/* Primary Communication Card */}
             <div className="p-6 sm:p-8 bg-surface hairline-border space-y-6">
               <div className="pb-4 hairline-b">
                 <div className="font-mono text-[10px] uppercase tracking-widest text-cobalt font-semibold mb-1">
-                  DIRECT CONTACT INBOX
+                  DIRECT EMAIL
                 </div>
                 <div className="font-serif text-2xl text-ink-primary font-normal">
-                  Primary Routing Channel
+                  Email me directly
                 </div>
                 <p className="font-sans text-xs sm:text-sm text-ink-secondary mt-2 leading-relaxed">
-                  Monitored daily for engineering inquiries, venture collaborations, and direct business proposals.
+                  For projects, roles, and collaborations.
                 </p>
               </div>
 
@@ -268,7 +271,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
           {/* ========================================================= */}
           {/* RIGHT COLUMN: Interactive Intent-Based Form (7 Cols)      */}
           {/* ========================================================= */}
-          <div className="lg:col-span-7 bg-surface/50 p-6 sm:p-8 lg:p-10 hairline-border">
+          <div id="contact-message-panel" tabIndex={-1} className="lg:col-span-7 bg-surface/50 p-6 sm:p-8 lg:p-10 hairline-border">
             {!submittedData ? (
               <form onSubmit={handleSubmit} noValidate className="space-y-6">
                 {/* Honeypot field (hidden from screen readers & visual users) */}

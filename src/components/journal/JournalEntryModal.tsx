@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import { useModalFocus } from "@/components/ui/useModalFocus";
 import { JournalEntry } from "@/types";
 import { X, BookOpen, AlertCircle, FileText, Compass, Sparkles } from "lucide-react";
 
@@ -13,25 +14,7 @@ export function JournalEntryModal({ entry, onClose }: JournalEntryModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Keyboard trap & Escape listener
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    };
-
-    if (entry) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-      setTimeout(() => closeButtonRef.current?.focus(), 50);
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [entry, onClose]);
+  useModalFocus(entry !== null, onClose, modalRef, closeButtonRef);
 
   if (!entry) return null;
 
@@ -47,7 +30,7 @@ export function JournalEntryModal({ entry, onClose }: JournalEntryModalProps) {
     >
       <div
         ref={modalRef}
-        className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-canvas hairline-border shadow-2xl flex flex-col transition-colors selection:bg-cobalt selection:text-white"
+        className="w-full max-w-3xl max-h-[90vh] rounded-2xl overflow-y-auto bg-canvas hairline-border shadow-2xl flex flex-col transition-colors selection:bg-cobalt selection:text-white"
       >
         {/* Modal Masthead */}
         <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-surface hairline-b">

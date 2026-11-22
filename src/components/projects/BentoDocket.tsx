@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import type { ProjectCategory, ProjectDossier } from "@/types";
 import { brandDossier } from "@/content/dossier";
+import { SceneNavigator } from "@/components/spatial/SceneNavigator";
 import { ProjectDetailModal } from "./ProjectDetailModal";
 import {
   DentalAIGraphic,
@@ -31,6 +32,7 @@ const projectGraphics: Partial<Record<string, React.ComponentType>> = {
 
 export function BentoDocket() {
   const [category, setCategory] = useState<ProjectCategory>("All");
+  const [preview, setPreview] = useState(0);
   const [selectedProject, setSelectedProject] = useState<ProjectDossier | null>(null);
   const closeProject = useCallback(() => setSelectedProject(null), []);
   const projects = category === "All"
@@ -40,13 +42,24 @@ export function BentoDocket() {
   return (
     <section id="work" aria-labelledby="work-heading" className="hairline-b py-12 sm:py-16 lg:py-20">
       <div className="folio-shell">
-        <div className="work-heading">
-          <h2 id="work-heading">Selected work</h2>
-          <p>Projects across AI, software, and digital products.</p>
+        <div className="spatial-work-layout">
+          <div className="work-heading">
+            <h2 id="work-heading">Selected work</h2>
+            <p>Projects across AI, software, and digital products.</p>
+            <a className="hero-contact" href="#project-index">Browse all projects <ArrowUpRight size={16} aria-hidden="true" /></a>
+          </div>
+          {projects.length > 0 && <SceneNavigator
+            kind="work"
+            label="Project gallery"
+            items={projects.map((project) => ({ title: project.name, detail: project.category }))}
+            active={preview}
+            onSelect={setPreview}
+            action={{ label: "Case study", run: () => setSelectedProject(projects[preview]) }}
+          />}
         </div>
-        <div className="work-filters" role="group" aria-label="Filter projects">
+        <div id="project-index" className="work-filters" role="group" aria-label="Filter projects">
           {filters.map((filter) => (
-            <button key={filter.category} aria-pressed={category === filter.category} type="button" onClick={() => setCategory(filter.category)}>
+            <button key={filter.category} aria-pressed={category === filter.category} type="button" onClick={() => { setCategory(filter.category); setPreview(0); }}>
               {filter.label}
             </button>
           ))}
