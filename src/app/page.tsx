@@ -1,3 +1,4 @@
+import { StreetShell } from "@/components/dukaan/StreetShell";
 import { HeaderFolio } from "@/components/navigation/HeaderFolio";
 import { HeroExperience } from "@/components/hero/HeroExperience";
 import { BentoDocket } from "@/components/projects/BentoDocket";
@@ -8,7 +9,7 @@ import { GlobalFooter } from "@/components/footer/GlobalFooter";
 
 export default function HomePage() {
   return (
-    <>
+    <StreetShell>
       <HeaderFolio />
       <main id="main-content" tabIndex={-1}>
         <HeroExperience />
@@ -18,6 +19,6 @@ export default function HomePage() {
         <CollaborationGateway />
       </main>
       <GlobalFooter />
-    </>
+    </StreetShell>
   );
 }

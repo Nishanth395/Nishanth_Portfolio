@@ -180,6 +180,10 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
           </p>
         </div>
 
+        <a className="street-contact-button folio-button folio-button-primary" href="#contact-message-panel">
+          Let&apos;s build your shopfront <ArrowUpRight size={17} aria-hidden="true" />
+        </a>
+
         {/* 12-Column Layout: Left Direct Channels, Right Interactive Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* ========================================================= */}

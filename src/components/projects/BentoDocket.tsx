@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import type { ProjectCategory, ProjectDossier } from "@/types";
 import { brandDossier } from "@/content/dossier";
+import { ShopWalk } from "@/components/dukaan/ShopWalk";
 import { SceneNavigator } from "@/components/spatial/SceneNavigator";
 import { ProjectDetailModal } from "./ProjectDetailModal";
 import {
@@ -41,6 +42,7 @@ export function BentoDocket() {
 
   return (
     <section id="work" aria-labelledby="work-heading" className="hairline-b py-12 sm:py-16 lg:py-20">
+      <ShopWalk />
       <div className="folio-shell">
         <div className="spatial-work-layout">
           <div className="work-heading">

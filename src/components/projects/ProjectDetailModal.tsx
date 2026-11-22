@@ -10,9 +10,10 @@ interface ProjectDetailModalProps {
   project: ProjectDossier | null;
   isOpen: boolean;
   onClose: () => void;
+  street?: boolean;
 }
 
-export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailModalProps) {
+export function ProjectDetailModal({ project, isOpen, onClose, street = false }: ProjectDetailModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -22,6 +23,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 
   return (
     <div
+      data-street-case={street || undefined}
       className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm transition-opacity animate-in fade-in duration-150"
       ref={dialogRef}
       role="dialog"

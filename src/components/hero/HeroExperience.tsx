@@ -1,5 +1,4 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
-import { Sculpture } from "./Sculpture";
 
 export function HeroExperience() {
   return (
@@ -15,7 +14,14 @@ export function HeroExperience() {
           <a className="hero-contact" href="#contact">Get in touch <ArrowUpRight size={17} aria-hidden="true" /></a>
         </div>
       </div>
-      <Sculpture />
+      <div className="street-entry">
+        <div className="street-sign">
+          <span className="street-label">Dukaan Street</span>
+          <strong>NISHANTH — BUILDER</strong>
+          <span lang="hi">निशांत — निर्माता</span>
+        </div>
+        <a href="#work" className="street-start">Start walking ↓</a>
+      </div>
     </section>
   );
 }

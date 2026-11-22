@@ -336,3 +336,151 @@ main [id] { scroll-margin-top: 88px; }
   .spatial-actions { width: 100%; justify-content: space-between; }
   .spatial-step { margin-left: auto; }
 }
+
+/* Dukaan Street uses the existing content and contact form in both modes. */
+.dukaan {
+  --street-cream: #fff4e0;
+  --street-ink: #070817;
+  --street-aqua: #2ee6c5;
+  --street-gold: #ffb627;
+  --street-peach: #ffd9b0;
+  --font-inter: "Inter Variable";
+  --font-jetbrains: "JetBrains Mono Variable";
+  --canvas-substrate: #101124;
+  --surface-recessed: #181a36;
+  --surface-raised: #242649;
+  --ink-primary: #fff4e0;
+  --ink-secondary: #efdcc6;
+  --ink-meta: #d3baa5;
+  --border-hairline: #514257;
+  --accent-cobalt: #ffca72;
+  --folio-button: #ffb627;
+  margin: 0;
+  color: var(--ink-primary);
+  font-family: "Inter Variable", sans-serif;
+  background: #171831;
+}
+.dukaan :is(h1,h2,h3,.street-sign strong) { font-family: "Bricolage Grotesque Variable", sans-serif; letter-spacing: -.055em; }
+.dukaan .folio-header { background: #101124ef; border-color: #dcad7f45; color: var(--street-cream); }
+.dukaan .folio-monogram { background: #e8452c; color: var(--street-cream); border-color: #ffcbbb73; }
+.dukaan .folio-monogram span { color: var(--street-gold); }
+.dukaan .folio-button-primary { color: #272039; }
+.street-world { position: fixed; inset: 0; z-index: 0; }
+.street-world canvas { cursor: url("/images/lantern-cursor.png") 11 13, crosshair; }
+.street-content { position: relative; }
+.dukaan[data-view="street"] .street-content { pointer-events: none; }
+.dukaan[data-view="street"] :is(.folio-header,.hero-copy,.street-entry,.shop-ticket,.work-heading,.work-filters,.work-card,.spatial-console,.studio-grid,.site-footer,#contact .folio-shell,[role="dialog"]) { pointer-events: auto; }
+.dukaan .portfolio-hero {
+  min-height: min(850px, calc(100svh - 70px));
+  grid-template-columns: minmax(0, .98fr) minmax(0, 1.02fr);
+  padding-block: clamp(64px, 9vw, 136px);
+  align-items: end;
+}
+.dukaan .hero-copy {
+  padding: clamp(20px, 3.2vw, 46px);
+  border-radius: 14px;
+  background: linear-gradient(150deg, #25203ce8, #101024ee);
+  border: 1px solid #ffcf9875;
+  box-shadow: 0 16px 45px #1e15277a;
+}
+.dukaan .portfolio-hero h1 { font-size: clamp(3.45rem, 7.15vw, 7.7rem); }
+.dukaan .hero-description { color: #f4dfc8; }
+.dukaan .hero-contact { color: var(--street-cream); }
+.street-entry { display: grid; justify-items: center; gap: 14px; align-self: center; }
+.street-sign {
+  position: relative;
+  transform: rotate(-3deg);
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  width: min(100%, 440px);
+  border-radius: 8px;
+  padding: 18px 16px;
+  border: 2px solid #ffb627;
+  outline: 1px solid #ffd39fa6;
+  outline-offset: 5px;
+  background: #1b1f4bea;
+  box-shadow: 0 13px 55px #41203b8a, 0 0 24px #ffb6278a;
+  color: var(--street-cream);
+  text-align: center;
+}
+.street-label { font-family: "JetBrains Mono Variable", monospace; color: var(--street-gold); font-size: .71rem; text-transform: uppercase; letter-spacing: .13em; }
+.street-sign strong { font-size: clamp(1.3rem, 3.3vw, 2.6rem); }
+.street-sign [lang="hi"] { color: #ffd9b0; font-size: .98rem; }
+.street-start { border-radius: 99px; border: 1px solid #ffce96b0; background: #1c1e40; color: var(--street-cream); font-size: .82rem; font-weight: 800; padding: 10px 14px; }
+.street-start:hover { background: #40305b; }
+.dukaan #work { border-top-color: #675267; background: linear-gradient(180deg,#12152aec 0,transparent 170px); }
+.dukaan #work > .folio-shell:not(.shop-walk) { background: #13152ce9; border: 1px solid #5f465c; border-radius: 18px; padding: clamp(14px, 3vw, 44px); }
+.shop-walk { padding-bottom: 24px; }
+.shop-stop { min-height: 61svh; display: flex; align-items: center; scroll-margin-top: 77px; }
+.shop-stop:nth-child(even) { justify-content: flex-end; }
+.shop-ticket {
+  max-width: min(100%, 385px);
+  padding: 22px;
+  border: 1px solid var(--shop-accent);
+  border-radius: 12px;
+  background: #15152eea;
+  box-shadow: 0 16px 34px #100a1470;
+}
+.shop-ticket .street-label { color: var(--shop-accent); }
+.shop-ticket h3 { font-size: clamp(1.75rem, 3.5vw, 3rem); line-height: 1.01; margin-block: 7px 10px; }
+.shop-ticket p:not(.street-label) { margin-bottom: 14px; line-height: 1.52; color: var(--ink-secondary); }
+.dukaan :is(.studio-section,.notes-section,#contact) { background: #12142bc7; }
+.dukaan #about .studio-grid, .dukaan #journal .studio-grid { padding: clamp(14px, 3vw, 34px); border: 1px solid #665061; border-radius: 16px; background: #17192fe8; }
+.dukaan #contact .folio-shell { border: 1px solid #2ee6c56e; border-radius: 16px; background: #13152dea; padding: clamp(18px, 3vw, 42px); }
+.dukaan #contact .folio-button-primary { background: var(--street-aqua); }
+.dukaan .site-footer { padding-bottom: 86px; pointer-events: auto; }
+.dukaan .spatial-stage { display: none; }
+.dukaan .spatial-console { border-top: 0; }
+.dukaan[data-view="flat"] .portfolio-hero, .dukaan[data-view="pending"] .portfolio-hero { min-height: auto; align-items: center; }
+.dukaan[data-view="flat"] .shop-walk, .dukaan[data-view="pending"] .shop-walk { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.dukaan:is([data-view="flat"],[data-view="pending"]) .shop-stop { min-height: 0; display: block; }
+.dukaan:is([data-view="flat"],[data-view="pending"]) .shop-ticket { max-width: none; height: 100%; }
+.street-tools { position: fixed; z-index: 45; right: clamp(14px, 4vw, 54px); bottom: max(15px, env(safe-area-inset-bottom)); }
+.street-tools-row, .street-map { background: #15172def; border: 1px solid #ffd9b064; padding: 5px; border-radius: 11px; box-shadow: 0 8px 25px #1010207a; }
+.street-tools-row { display: flex; gap: 5px; }
+.street-tools-row button, .street-map a { min-height: 44px; padding: 7px 10px; display: flex; align-items: center; gap: 6px; border-radius: 6px; font-size: .75rem; font-weight: 750; }
+.street-tools-row button:hover, .street-map a:hover, .street-map [aria-current] { background: #312848; color: #ffd9b0; }
+.street-map { display: grid; margin-bottom: 6px; }
+.street-map-meter { height: 3px; margin: 7px 8px 4px; background: #393650; }
+.street-map-meter span { display: block; height: 100%; background: var(--street-aqua); }
+.street-loader { pointer-events: none; position: fixed; z-index: 35; top: 82px; right: 4vw; display: flex; gap: 8px; align-items: center; background: #191a35; border: 1px solid #e6b587; padding: 9px 12px; border-radius: 8px; color: var(--street-cream); font: 600 .72rem "JetBrains Mono Variable", monospace; }
+.street-loader > span:first-child { width: 15px; height: 13px; border: 1px solid #ffb627; background: repeating-linear-gradient(#ffb627 0 1px, #22223f 1px 4px); transform-origin: top; animation: shutter-roll .9s alternate infinite; }
+@keyframes shutter-roll { to { transform: scaleY(.2); } }
+@media (max-width: 760px) {
+  .dukaan .portfolio-hero { grid-template-columns: 1fr; align-content: end; gap: 22px; min-height: calc(100svh - 62px); padding-block: 42px 26px; }
+  .dukaan .hero-copy { order: 2; }
+  .street-entry { width: min(100%,370px); justify-self: center; gap: 12px; }
+  .dukaan .portfolio-hero h1 { margin-top: 12px; }
+  .dukaan .shop-stop { min-height: 73svh; align-items: end; padding-bottom: 11svh; }
+  .dukaan:is([data-view="flat"],[data-view="pending"]) .shop-stop { padding-bottom: 0; }
+  .dukaan:is([data-view="flat"],[data-view="pending"]) .shop-walk { grid-template-columns: 1fr; }
+}
+.dukaan[data-view="street"] #about, .dukaan[data-view="street"] #contact {
+  padding-top: clamp(180px, 49svh, 520px);
+  background: linear-gradient(180deg, transparent 0%, transparent 28%, #111329b8 60%, #12142bee 100%);
+}
+.street-contact-button { display: flex; width: fit-content; margin-bottom: 22px; box-shadow: 0 0 22px #2ee6c554; }
+.dukaan [data-street-case] { padding: 0; }
+.dukaan [data-street-case] > div:last-child { max-width: none; max-height: 100dvh; height: 100dvh; border-radius: 0; }
+.dukaan [data-street-case] > div:last-child > div:last-child { padding-inline: max(20px, calc((100vw - 990px) / 2)); }
+[data-theme="broadsheet"] .dukaan {
+  --canvas-substrate: #fff0db;
+  --surface-recessed: #f8e4cd;
+  --surface-raised: #f5dbc0;
+  --ink-primary: #261e3b;
+  --ink-secondary: #493953;
+  --ink-meta: #5a4861;
+  --accent-cobalt: #9b341f;
+  --border-hairline: #b38472;
+}
+[data-theme="broadsheet"] .dukaan :is(.folio-header,.hero-copy,.shop-ticket,.street-tools,.street-entry) {
+  --ink-primary: #fff4e0;
+  --ink-secondary: #efdcc6;
+  --ink-meta: #d3baa5;
+  --accent-cobalt: #ffca72;
+  --canvas-substrate: #101124;
+}
+[data-theme="broadsheet"] .dukaan :is(.hero-copy,.shop-ticket,.street-tools,.street-entry,.site-footer) { color: #fff4e0; }
+[data-theme="broadsheet"] .dukaan :is(#work > .folio-shell:not(.shop-walk), #about .studio-grid, #journal .studio-grid, #contact .folio-shell) { background: #fff0dbee; }
+[data-theme="broadsheet"] .dukaan .studio-grid .hero-contact { color: #261e3b; }
