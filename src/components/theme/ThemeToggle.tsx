@@ -1,30 +1,20 @@
 "use client";
 
-import React from "react";
 import { useTheme } from "./ThemeProvider";
 import { Sun, Moon } from "lucide-react";
 
-export function ThemeToggle({ className = "" }: { className?: string }) {
+export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const dark = theme === "darkroom";
 
   return (
     <button
       onClick={toggleTheme}
       type="button"
-      className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-mono uppercase tracking-wider hairline-border bg-surface hover:bg-canvas text-ink-primary transition-colors focus-visible:outline-2 focus-visible:outline-cobalt shrink-0 ${className}`}
-      aria-label={`Switch to ${theme === "broadsheet" ? "Darkroom" : "Broadsheet"} mode`}
+      className="inline-flex items-center hairline-border hover:bg-surface text-ink-primary transition-colors"
+      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
     >
-      {theme === "broadsheet" ? (
-        <>
-          <Moon className="w-3.5 h-3.5 text-ink-meta shrink-0" />
-          <span className="hidden sm:inline">[DARKROOM]</span>
-        </>
-      ) : (
-        <>
-          <Sun className="w-3.5 h-3.5 text-cobalt shrink-0" />
-          <span className="hidden sm:inline">[BROADSHEET]</span>
-        </>
-      )}
+      {dark ? <Sun size={17} aria-hidden="true" /> : <Moon size={17} aria-hidden="true" />}
     </button>
   );
 }

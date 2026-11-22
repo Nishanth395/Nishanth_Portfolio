@@ -12,15 +12,28 @@ interface ProjectDetailModalProps {
 }
 
 export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailModalProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   // Lock body scroll and handle Escape key
   useEffect(() => {
     if (!isOpen) return;
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
+    const trigger = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+      if (event.key !== "Tab") return;
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>("button:not([disabled]), a[href]");
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
@@ -29,8 +42,9 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
     closeButtonRef.current?.focus();
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
+      if (trigger instanceof HTMLElement) trigger.focus();
     };
   }, [isOpen, onClose]);
 
@@ -39,6 +53,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm transition-opacity animate-in fade-in duration-150"
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="project-modal-title"
@@ -51,7 +66,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
       />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-4xl max-h-[92vh] bg-canvas text-ink-primary hairline-border shadow-2xl flex flex-col z-10 overflow-hidden">
+      <div className="relative w-full max-w-4xl max-h-[92vh] rounded-2xl bg-canvas text-ink-primary hairline-border shadow-2xl flex flex-col z-10 overflow-hidden">
         {/* Top Header Bar */}
         <div className="hairline-b bg-surface px-4 sm:px-6 py-3.5 flex items-center justify-between select-none shrink-0">
           <div className="flex items-center gap-3">

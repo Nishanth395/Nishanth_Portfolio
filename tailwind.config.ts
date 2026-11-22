@@ -41,9 +41,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["'Space Grotesk'", "var(--font-inter)", "-apple-system", "sans-serif"],
-        serif: ["'Space Grotesk'", "var(--font-inter)", "-apple-system", "sans-serif"],
-        sans: ["'Plus Jakarta Sans'", "var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        display: ["'Space Grotesk Variable'", "var(--font-inter)", "-apple-system", "sans-serif"],
+        serif: ["'Space Grotesk Variable'", "var(--font-inter)", "-apple-system", "sans-serif"],
+        sans: ["'Manrope Variable'", "var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
         mono: ["var(--font-jetbrains)", "'JetBrains Mono'", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       spacing: {
