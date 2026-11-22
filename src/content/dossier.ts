@@ -280,11 +280,11 @@ export const brandDossier: PersonalProfile = {
       liveUrl: "https://sribalajiinterior.com",
       liveUrlLabel: "Live Client Website",
       deploymentStatusNote:
-        "First commercial website engagement sold and delivered to an active business client (Sri Balaji Interiors). Verified production delivery on custom domain.",
+        "Commercial website delivered for Sri Balaji Interiors.",
       challenges:
         "Balancing heavy image assets of interior craftsmanship with fast mobile page load speeds, and aligning technical delivery with non-technical business expectations.",
       verifiedOutcomes:
-        "Successfully built, sold, and delivered to Sri Balaji Interiors; live and actively operational at sribalajiinterior.com.",
+        "Built, sold, and delivered the Sri Balaji Interiors website.",
     },
   ],
   commercialMilestone: {

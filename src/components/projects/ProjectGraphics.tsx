@@ -183,7 +183,7 @@ export function SriBalajiInteriorsGraphic({ className = "w-full h-36" }: { class
 
       <div className="flex justify-between items-center text-[8px]">
         <span className="text-ink-secondary">COMMERCIAL VALUE: DIRECT CLIENT ENGAGEMENT</span>
-        <span className="text-cobalt font-semibold">PRODUCTION LIVE ↗</span>
+        <span className="text-cobalt font-semibold">CLIENT WEBSITE ↗</span>
       </div>
     </div>
   );

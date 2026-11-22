@@ -1,13 +1,11 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { brandDossier } from "@/content/dossier";
-import { PortalViewer } from "./PortalViewer";
+import { Station } from "../exhibition/Exhibition";
 
-const portrait = "/images/atelier/nishanth.webp";
+
 
 export function AtelierHero() {
-  const portraitSrc = existsSync(join(process.cwd(), "public", portrait)) ? portrait : undefined;
+
 
   return (
     <section id="home" className="atelier-hero" aria-labelledby="atelier-heading">
@@ -24,12 +22,12 @@ export function AtelierHero() {
             <a className="atelier-secondary" href="#contact">Let&apos;s connect <ArrowUpRight size={17} aria-hidden="true" /></a>
           </div>
         </div>
-        <PortalViewer portraitSrc={portraitSrc} />
+        <Station room="home" />
         <div className="atelier-index">
           <span>AI &amp; Software Engineering</span>
           <span>Product Development</span>
           <span>Entrepreneurship</span>
-          <span className="atelier-availability"><i /> Open to meaningful collaborations</span>
+          <a href="#work" className="atelier-availability">Explore the exhibition ↓</a>
         </div>
       </div>
     </section>

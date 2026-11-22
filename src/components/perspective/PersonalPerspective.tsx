@@ -1,5 +1,6 @@
 "use client";
 
+import { Station } from "@/components/exhibition/Exhibition";
 import React from "react";
 import { brandDossier } from "@/content/dossier";
 import { Compass, Lightbulb, Target, ArrowUpRight, Cpu, Code2, Layers, CheckCircle2 } from "lucide-react";
@@ -15,6 +16,7 @@ export function PersonalPerspective() {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
+        <div className="room-opening">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-8 mb-12 hairline-b gap-6">
           <div>
             <div className="inline-flex items-center gap-2 mb-3">
@@ -38,6 +40,8 @@ export function PersonalPerspective() {
             <span className="hidden sm:inline text-hairline">|</span>
             <span className="hidden sm:inline">AI PRODUCT BUILDER</span>
           </div>
+        </div>
+          <Station room="about" />
         </div>
 
         {/* Master Editorial Narrative Grid */}
@@ -116,8 +120,6 @@ export function PersonalPerspective() {
                 </p>
 
                 <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-surface hairline-border font-mono text-[10px] uppercase text-ink-meta">
-                  <span>{brandDossier.location}</span>
-                  <span>•</span>
                   <span>Student Builder</span>
                 </div>
               </div>

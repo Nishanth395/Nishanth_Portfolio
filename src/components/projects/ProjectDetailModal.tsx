@@ -141,7 +141,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
               <div className="space-y-1">
                 <div className="font-mono text-[10px] uppercase tracking-wider text-cobalt font-semibold">
                   {project.isCommercialDelivery
-                    ? "COMMERCIAL CLIENT DELIVERY // VERIFIED"
+                    ? "COMMERCIAL CLIENT DELIVERY"
                     : "PUBLIC DEPLOYMENT // PROTOTYPE DEMO"}
                 </div>
                 <p className="font-sans text-xs text-ink-secondary leading-relaxed">
@@ -229,7 +229,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
                   COMMERCIAL CLIENT SPECIFICATION: SRI BALAJI INTERIORS
                 </div>
                 <div className="font-mono text-[10px] text-ink-meta uppercase">
-                  DELIVERY VERIFIED
+                  CLIENT PROJECT
                 </div>
               </div>
 
@@ -262,7 +262,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
               )}
 
               <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
-                <span className="text-ink-meta">Verified Commercial Handoff: Production Deployment Active</span>
+                <span className="text-ink-meta">Sri Balaji Interiors · Commercial website</span>
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -299,7 +299,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
             </div>
           </div>
 
-          {/* Section: Personal Role, Challenges & Verified Outcomes */}
+          {/* Section: Personal Role, Challenges & Project outcomes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
             <div className="p-4 bg-surface hairline-border">
               <div className="font-mono text-[10px] uppercase tracking-widest text-ink-meta mb-2">
@@ -322,7 +322,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
             <div className="p-4 bg-surface hairline-border">
               <div className="font-mono text-[10px] uppercase tracking-widest text-cobalt mb-2 flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Verified Outcomes</span>
+                <span>Project outcomes</span>
               </div>
               <p className="font-sans text-xs sm:text-sm text-ink-primary font-medium leading-relaxed">
                 {project.verifiedOutcomes}
@@ -335,7 +335,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
         <div className="hairline-t bg-surface px-4 sm:px-6 py-3 flex items-center justify-between text-xs font-mono text-ink-meta shrink-0">
           <div className="flex items-center gap-2">
             <Compass className="w-3.5 h-3.5 text-cobalt" />
-            <span>NISHANTH PORTFOLIO // VERIFIED PROJECT DOSSIER</span>
+            <span>NISHANTH PORTFOLIO // PROJECT DOSSIER</span>
           </div>
           <button
             type="button"

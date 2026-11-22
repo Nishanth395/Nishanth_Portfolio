@@ -40,7 +40,7 @@
   column-gap: clamp(25px, 4vw, 64px);
   padding-top: clamp(44px, 5.4vw, 88px);
 }
-.atelier-kicker, .atelier-identity, .atelier-index, .atelier-portal figcaption {
+.atelier-kicker, .atelier-identity, .atelier-index {
   font-family: "JetBrains Mono Variable", monospace;
   letter-spacing: .09em;
   text-transform: uppercase;
@@ -60,27 +60,6 @@
 .atelier-primary:hover { background: #c8d5ff; border-color: #c8d5ff; }
 .atelier-secondary { color: #ede9df; }
 .atelier-secondary:hover { color: #b3c4ff; }
-.atelier-portal { margin: 0; width: 100%; aspect-ratio: 1.19; min-height: 330px; max-height: 555px; isolation: isolate; position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 52%, #304268, #151e32 58%, #0b1120 100%); border: 1px solid #344364; }
-.atelier-portal-poster, .atelier-portal-canvas { position: absolute; inset: 0; }
-.atelier-portal-poster { background-image: url("/images/atelier/portal.webp"); background-size: contain; background-position: center; background-repeat: no-repeat; }
-.atelier-portrait-still {
-  position: absolute;
-  inset: 34.5% 35.5% 30% 42.5%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.atelier-portal[data-ready="true"] .atelier-portal-poster { visibility: hidden; }
-.atelier-portal-canvas { mask-image: linear-gradient(#000 0 81%, #0008 93%, transparent); }
-.atelier-portal-frame { position: absolute; inset: 14px; pointer-events: none; }
-.atelier-portal-frame > span { position: absolute; width: 9px; height: 9px; border-color: #98b0df; }
-.atelier-portal-frame > span:nth-child(1) { top: 0; left: 0; border-left-width: 1px; border-top-width: 1px; }
-.atelier-portal-frame > span:nth-child(2) { top: 0; right: 0; border-right-width: 1px; border-top-width: 1px; }
-.atelier-portal-frame > span:nth-child(3) { bottom: 42px; right: 0; border-right-width: 1px; border-bottom-width: 1px; }
-.atelier-portal-frame > span:nth-child(4) { bottom: 42px; left: 0; border-left-width: 1px; border-bottom-width: 1px; }
-.atelier-portal figcaption { position: absolute; inset: auto 0 0; min-height: 47px; padding: 3px 13px; background: #0e1628ed; color: #c9d0dc; border-top: 1px solid #3b4b6a; display: flex; align-items: center; justify-content: space-between; gap: 6px; letter-spacing: .055em; }
-.atelier-portal figcaption button { display: inline-flex; min-height: 40px; padding-inline: 6px; gap: 6px; align-items: center; color: #aac0ff; white-space: nowrap; }
-.atelier-portal figcaption button:hover { color: #ede9df; }
 .atelier-index { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 11px 26px; min-height: 67px; padding-block: 15px; border-top: 1px solid #34405a; margin-top: clamp(27px, 3.5vw, 51px); color: #a9b5ca; letter-spacing: .045em; }
 .atelier-availability { margin-left: auto; color: #d7e0f7; }
 .atelier-availability i { border-radius: 50%; display: inline-block; width: 6px; height: 6px; margin-right: 3px; background: #9bb2ff; }
@@ -141,7 +120,6 @@
   .atelier .folio-links { gap: 10px; }
   .atelier-hero-grid { grid-template-columns: 1fr; gap: 25px; padding-top: 48px; }
   .atelier h1 { font-size: clamp(4rem, 11vw, 6.2rem); margin-block: 25px 14px; }
-  .atelier-portal { aspect-ratio: 1.28; }
   .atelier-index { margin-top: 0; }
 }
 @media (max-width: 640px) {
@@ -150,10 +128,89 @@
   .atelier .folio-links-open { gap: 0; }
   .atelier h1 { font-size: clamp(3.25rem, 13vw, 5.35rem); }
   .atelier-hero-actions { gap: 6px 15px; margin-top: 18px; }
-  .atelier-portal { margin-top: 3px; }
-  .atelier-portal { min-height: 265px; aspect-ratio: 1.12; }
-  .atelier-portal figcaption { font-size: .58rem; }
   .atelier-availability { margin-left: 0; }
   .atelier-index { font-size: .65rem; gap: 7px 13px; }
   .atelier #work .work-heading { align-items: start; gap: 4px; }
+}
+
+/* The same display case carries the visitor through all seven rooms. */
+.world-station {
+  min-width: 0; margin: 0; color: #ede9df; background: #101827;
+  border: 1px solid #43506a; box-shadow: 0 18px 50px -32px #070b14;
+}
+.world-image {
+  isolation: isolate; position: relative; overflow: hidden; aspect-ratio: 1.55;
+  background: radial-gradient(ellipse at 42% 37%, #354461 0%, #1d293f 45%, #101725 90%);
+}
+.world-image::after { content:""; position:absolute; inset:12px; border:1px solid #b8c5d41e; pointer-events:none; }
+.world-still, .world-mount, .exhibition-canvas { position:absolute; inset:0; }
+.world-still { background-position:center; background-size:cover; background-repeat:no-repeat; }
+[data-room="home"] .world-still { background-size:contain; }
+[data-ready="true"] .world-still { visibility:hidden; }
+.world-portrait { position:absolute; height:37%; width:26%; top:33%; left:39%; object-fit:contain; }
+.world-label { pointer-events:none;position:absolute; inset:22px 24px auto; display:flex;justify-content:space-between; color:#d3daea; font:500 .63rem "JetBrains Mono Variable",monospace; text-transform:uppercase; letter-spacing:.12em; }
+.world-station figcaption { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 20px; border-top:1px solid #43506a; }
+.world-station figcaption small { display:block; font:500 .63rem "JetBrains Mono Variable",monospace; text-transform:uppercase;letter-spacing:.12em;color:#acbce0; }
+.world-station figcaption strong {display:block;margin-top:3px;font:500 clamp(1.15rem,2vw,1.65rem) "Newsreader Variable",Georgia,serif;}
+.world-station button { min-height:44px; font:500 .72rem "Inter Variable",sans-serif;color:#ccd8fb; }
+.world-station figcaption button {white-space:nowrap;text-decoration:underline;text-underline-offset:4px;}
+.exhibit-controls {display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #43506a;padding:2px 14px;}
+.exhibit-controls >div {display:flex;gap:2px;}
+.exhibit-controls >div button {min-width:34px;font-family:"JetBrains Mono Variable",monospace;}
+.exhibit-controls button[aria-pressed="true"] {color:#ede9df;box-shadow:inset 0 -2px #648cff;}
+.atelier section[id] {scroll-margin-top:70px;}
+.atelier .folio-links a[aria-current="location"] {text-decoration:underline;text-underline-offset:6px;}
+.atelier .room-opening, .atelier #work .spatial-work-layout {
+  display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:center;gap:clamp(28px,6vw,100px);margin-bottom:clamp(28px,5vw,76px);
+}
+.atelier .room-opening > div:first-child,.atelier #work .work-heading {display:flex;flex-direction:column;align-items:flex-start;border:0;gap:20px;margin:0;padding:0;}
+.atelier #work .work-heading h2 + p {max-width:32ch;}
+.atelier .atelier-hero-grid {padding-top:clamp(38px,5vw,80px);}
+.atelier .atelier-hero .world-image {aspect-ratio:1.32;}
+.atelier .atelier-hero .world-station {border-color:#43506a;}
+.atelier #journal .world-station {margin-top:24px;}
+@media(max-width:800px){
+  .atelier .room-opening,.atelier #work .spatial-work-layout {grid-template-columns:minmax(0,1fr);gap:24px;}
+  .atelier .world-image {aspect-ratio:1.5;}
+  .atelier .atelier-hero .world-image {aspect-ratio:1.46;}
+  .world-station figcaption {padding:9px 14px;}
+  .world-label {inset:17px 18px auto;font-size:.56rem;}
+}
+.world-image img.world-still {
+  display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+}
+/* Keep the installation in view while its case notes pass the reader. */
+@media (min-width:1100px) and (min-height:640px) {
+  .atelier :is(#work,#ventures,#leadership,#about) > div:first-child {
+    display:grid; grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);
+    align-items:start; column-gap:clamp(35px,4vw,70px);
+  }
+  .atelier :is(#work,#ventures,#leadership,#about) > div:first-child > * {grid-column:1;}
+  .atelier :is(#ventures,#leadership,#about) .room-opening,
+  .atelier #work .spatial-work-layout { display:contents; }
+  .atelier :is(#work,#ventures,#leadership,#about) .world-station {
+    position:sticky;top:90px;grid-column:2;grid-row:1 / span 5;
+  }
+  .atelier :is(#ventures,#leadership,#about) .room-opening > div:first-child,
+  .atelier #work .work-heading {grid-column:1;padding-bottom:32px;}
+  .atelier #work .work-grid, .atelier #leadership .grid,
+  .atelier :is(#ventures,#about) .grid {grid-template-columns:minmax(0,1fr);}
+  .atelier :is(#ventures,#about) .grid > * {grid-column:auto;}
+  .atelier #work .work-card {display:grid;grid-template-columns:minmax(85px,.36fr) minmax(0,1fr);}
+  .atelier #work .work-graphic {border:0;align-self:stretch;min-height:100%;overflow:hidden;position:relative;}
+  .atelier #work .work-graphic > * {position:absolute;inset:0;height:100%;width:100%;overflow:hidden;}
+  .atelier #work .work-card h3 {font-size:2rem;}
+  .atelier #work .work-card-content {padding:18px;}
+  .atelier :is(#ventures,#about) .room-opening~div {min-width:0;}
+  .atelier #journal .studio-grid > div:first-child {position:sticky;top:84px;}
+}
+
+.world-station figcaption {min-height:74px;}
+.atelier .work-catalog-index {display:none;}
+@media(max-width:800px){.world-station figcaption {min-height:64px;}}
+@media(min-width:1100px) and (min-height:640px){
+  .atelier #work .work-card {grid-template-columns:50px 1fr;border:0;border-top:1px solid #aab1bf;background:transparent;}
+  .atelier #work .work-card .work-graphic {display:none;}
+  .atelier .work-catalog-index {display:block;padding:21px 0;color:#485672;font:500 .7rem "JetBrains Mono Variable",monospace;}
+  .atelier #work .work-card-content {padding:16px 0 20px;}
 }

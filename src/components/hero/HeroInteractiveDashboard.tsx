@@ -121,7 +121,6 @@ export function HeroInteractiveDashboard() {
           <span className="text-emerald-600 dark:text-emerald-400 font-semibold hidden sm:inline">
             SYSTEM ACTIVE
           </span>
-          <span className="text-ink-meta font-mono text-[9px]">120 FPS</span>
         </div>
       </div>
 

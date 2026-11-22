@@ -7,11 +7,13 @@ import { PersonalPerspective } from "@/components/perspective/PersonalPerspectiv
 import { JournalDocket } from "@/components/journal/JournalDocket";
 import { CollaborationGateway } from "@/components/contact/CollaborationGateway";
 import { GlobalFooter } from "@/components/footer/GlobalFooter";
+import { Exhibition } from "@/components/exhibition/Exhibition";
 import "./atelier.css";
 
 export default function HomePage() {
   return (
     <div className="atelier">
+      <Exhibition>
       <HeaderFolio atelier />
       <main id="main-content" tabIndex={-1}>
         <AtelierHero />
@@ -19,10 +21,11 @@ export default function HomePage() {
         <CommercialProvenance />
         <LeadershipInitiatives />
         <PersonalPerspective />
-        <JournalDocket />
-        <CollaborationGateway />
+        <JournalDocket exhibition />
+        <CollaborationGateway exhibition />
       </main>
       <GlobalFooter />
+      </Exhibition>
     </div>
   );
 }

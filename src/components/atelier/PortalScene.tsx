@@ -1,12 +1,8 @@
 "use client";
 
-import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
-import { Component, Suspense, useEffect, useMemo, useRef, type ReactNode } from "react";
-import {
-  ACESFilmicToneMapping, BufferAttribute, BufferGeometry, Color, ExtrudeGeometry, MathUtils, Path,
-  PMREMGenerator, Shape, SRGBColorSpace, type Texture, TextureLoader, Vector3,
-} from "three";
-import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { useLoader } from "@react-three/fiber";
+import { useEffect, useMemo } from "react";
+import { ExtrudeGeometry, Path, Shape, SRGBColorSpace, type Texture, TextureLoader } from "three";
 
 const axis = 1.12;
 const baseline = -.02;
@@ -76,102 +72,10 @@ function Portrait({ texture }: { texture: Texture<HTMLImageElement> }) {
   </mesh>;
 }
 
-function Dust() {
-  const geometry = useMemo(() => {
-    const vertices = new Float32Array(108);
-    for (let i = 0; i < vertices.length / 3; i++) {
-      vertices[i * 3] = Math.sin(i * 14.77) * 3.08;
-      vertices[i * 3 + 1] = .15 + (Math.cos(i * 18.12) + 1) * 1.66;
-      vertices[i * 3 + 2] = Math.sin(i * 8.53) * 2.1;
-    }
-    return new BufferGeometry().setAttribute("position", new BufferAttribute(vertices, 3));
-  }, []);
-  useEffect(() => () => geometry.dispose(), [geometry]);
-
-  return <points geometry={geometry}>
-    <pointsMaterial color="#a8bce8" size={.014} transparent opacity={.29} depthWrite={false} />
-  </points>;
-}
-
-function Architecture({ portraitTexture, onReady }: { portraitTexture?: Texture<HTMLImageElement>; onReady: () => void }) {
-  const { camera, invalidate, scene, gl } = useThree();
-  const desired = useRef({ x: 0, y: 0, scroll: 0, entrance: 1 });
-  const current = useRef({ x: 0, y: 0, scroll: 0, entrance: 1 });
-  const ready = useRef(false);
-  const visible = useRef(true);
-  const target = useMemo(() => new Vector3(0, 1.16, .12), []);
-
-  useEffect(() => {
-    const room = new RoomEnvironment();
-    const generator = new PMREMGenerator(gl);
-    const environment = generator.fromScene(room, .06);
-    scene.environment = environment.texture;
-    scene.environmentIntensity = .69;
-    invalidate();
-    room.dispose();
-    generator.dispose();
-
-    const element = gl.domElement;
-    function onPointer(event: PointerEvent) {
-      if (event.pointerType === "touch") return;
-      const rect = element.getBoundingClientRect();
-      desired.current.x = (event.clientX - rect.left) / rect.width * 2 - 1;
-      desired.current.y = (event.clientY - rect.top) / rect.height * 2 - 1;
-      invalidate();
-    }
-    function recenter() {
-      Object.assign(desired.current, { x: 0, y: 0 });
-      invalidate();
-    }
-    function onScroll() {
-      if (!visible.current) return;
-      const rect = element.getBoundingClientRect();
-      desired.current.scroll = MathUtils.clamp((-rect.top + 60) / Math.max(rect.height, 1), 0, 1);
-      invalidate();
-    }
-    const observer = new IntersectionObserver(([entry]) => {
-      visible.current = entry.isIntersecting;
-      if (entry.isIntersecting) onScroll();
-    });
-    observer.observe(element);
-    element.addEventListener("pointermove", onPointer);
-    element.addEventListener("pointerleave", recenter);
-    addEventListener("scroll", onScroll, { passive: true });
-    desired.current.entrance = 0;
-    return () => {
-      observer.disconnect();
-      element.removeEventListener("pointermove", onPointer);
-      element.removeEventListener("pointerleave", recenter);
-      removeEventListener("scroll", onScroll);
-      scene.environment = null;
-      environment.dispose();
-    };
-  }, [gl, invalidate, scene]);
-
-  useFrame((_, elapsed) => {
-    const view = current.current;
-    const dt = Math.min(elapsed, .05);
-    const goal = desired.current;
-    view.x = MathUtils.damp(view.x, goal.x, 4, dt);
-    view.y = MathUtils.damp(view.y, goal.y, 4, dt);
-    view.scroll = MathUtils.damp(view.scroll, goal.scroll, 4, dt);
-    view.entrance = MathUtils.damp(view.entrance, goal.entrance, 2.8, dt);
-    camera.position.set(1.92 + view.x * .32 - view.scroll * .25, 2.12 - view.y * .20 + view.scroll * .11, 7.81 + view.entrance * .44 - view.scroll * .29);
-    camera.lookAt(target);
-    if (!ready.current) {
-      ready.current = true;
-      onReady();
-    }
-    const changed = Math.abs(view.x - goal.x) + Math.abs(view.y - goal.y) + Math.abs(view.scroll - goal.scroll) + view.entrance;
-    if (visible.current && changed > .004) invalidate();
-  });
-
-  return <>
-    <hemisphereLight color="#dce5fa" groundColor="#141d31" intensity={.52} />
-    <directionalLight position={[-3, 4, 5]} color="#f7eee1" intensity={2.65} />
-    <directionalLight position={[4, 2, -3]} color="#648cff" intensity={3.2} />
-    <pointLight position={[0, .3, -.22]} color="#648cff" intensity={8} distance={5} />
-    <group position-y={-.09}>
+export default function IdentityInstallation() {
+  const texture = useLoader(TextureLoader, "/images/atelier/nishanth.webp");
+  texture.colorSpace = SRGBColorSpace;
+  return (<group position-y={-.09}>
       <mesh position={[0, -.105, .12]}>
         <boxGeometry args={[3.66, .21, 3.67]} />
         <meshPhysicalMaterial color="#263658" metalness={.83} roughness={.26} clearcoat={.65} />
@@ -193,53 +97,6 @@ function Architecture({ portraitTexture, onReady }: { portraitTexture?: Texture<
           <meshPhysicalMaterial color="#6c98df" transparent opacity={.38} metalness={.35} roughness={.17} clearcoat={1} />
         </mesh>
       ))}
-      {portraitTexture && <Portrait texture={portraitTexture} />}
-    </group>
-    <gridHelper args={[12, 36, new Color("#4c6a9e"), new Color("#30415e")]} position-y={-.35} material-transparent material-opacity={.56} />
-    <Dust />
-  </>;
-}
-
-class PortalBoundary extends Component<{ children: ReactNode; onUnavailable: () => void }, { failed: boolean }> {
-  state = { failed: false };
-  static getDerivedStateFromError() { return { failed: true }; }
-  componentDidCatch() { this.props.onUnavailable(); }
-  render() { return this.state.failed ? null : this.props.children; }
-}
-
-function PortraitInstallation({ source, onReady }: { source: string; onReady: () => void }) {
-  const texture = useLoader(TextureLoader, source);
-  texture.colorSpace = SRGBColorSpace;
-  return <Architecture portraitTexture={texture} onReady={onReady} />;
-}
-
-function ContextGuard({ onUnavailable }: { onUnavailable: () => void }) {
-  const canvas = useThree((state) => state.gl.domElement);
-  useEffect(() => {
-    canvas.addEventListener("webglcontextlost", onUnavailable);
-    return () => canvas.removeEventListener("webglcontextlost", onUnavailable);
-  }, [canvas, onUnavailable]);
-  return null;
-}
-
-export default function PortalScene({ portraitSrc, onReady, onUnavailable }: { portraitSrc?: string; onReady: () => void; onUnavailable: () => void }) {
-  return (
-    <div className="atelier-portal-canvas" aria-hidden="true">
-      <PortalBoundary onUnavailable={onUnavailable}>
-        <Canvas
-          dpr={[1, 1.5]}
-          frameloop="demand"
-          camera={{ fov: 33, position: [1.92, 2.12, 8.25], near: .1, far: 60 }}
-          gl={{ alpha: true, antialias: true, powerPreference: "low-power", toneMapping: ACESFilmicToneMapping }}
-        >
-          <ContextGuard onUnavailable={onUnavailable} />
-          <Suspense fallback={null}>
-            {portraitSrc
-              ? <PortraitInstallation source={portraitSrc} onReady={onReady} />
-              : <Architecture onReady={onReady} />}
-          </Suspense>
-        </Canvas>
-      </PortalBoundary>
-    </div>
-  );
+      <Portrait texture={texture} />
+    </group>);
 }

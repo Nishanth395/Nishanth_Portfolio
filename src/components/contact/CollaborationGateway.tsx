@@ -1,5 +1,6 @@
 "use client";
 
+import { Station } from "@/components/exhibition/Exhibition";
 import { ContactExhibit } from "@/components/spatial/ContactExhibit";
 
 import React, { useState } from "react";
@@ -37,7 +38,7 @@ interface SubmissionResult {
   message: string;
 }
 
-export function CollaborationGateway() {
+export function CollaborationGateway({exhibition=false}:{exhibition?:boolean}) {
   const intents: CollaborationIntent[] = [
     "Internship / Technical Role",
     "Startup Collaboration",
@@ -190,7 +191,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
           {/* LEFT COLUMN: Verified Channels & Direct Routing (5 Cols)  */}
           {/* ========================================================= */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-            <ContactExhibit />
+            {exhibition ? <Station room="contact" /> : <ContactExhibit />}
             {/* Primary Communication Card */}
             <div className="p-6 sm:p-8 bg-surface hairline-border space-y-6">
               <div className="pb-4 hairline-b">
@@ -208,7 +209,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
               {/* Direct Email Trigger */}
               <div>
                 <div className="font-mono text-[10px] uppercase tracking-wider text-ink-meta mb-2">
-                  Verified Email:
+                  Email:
                 </div>
                 <a
                   href={`mailto:${brandDossier.links.email}`}
@@ -227,7 +228,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
               {/* Professional Profiles */}
               <div>
                 <div className="font-mono text-[10px] uppercase tracking-wider text-ink-meta mb-2">
-                  Verified Profiles:
+                  Profiles:
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a
@@ -259,17 +260,6 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
               </div>
             </div>
 
-            {/* Operating Grounding Ledger */}
-            <div className="p-5 bg-surface/40 hairline-border font-mono text-[11px] text-ink-meta space-y-2">
-              <div className="flex items-center justify-between text-ink-secondary">
-                <span>LOCATION: {brandDossier.location.toUpperCase()}</span>
-                <span className="text-cobalt">UTC+05:30</span>
-              </div>
-              <div>TYPICAL RESPONSE: WITHIN 24 TO 48 HOURS</div>
-              <div className="pt-2 hairline-t text-[10px] text-ink-meta uppercase">
-                Zero automated recruiters or unsolicited mass newsletters.
-              </div>
-            </div>
           </div>
 
           {/* ========================================================= */}
@@ -460,9 +450,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
                       </>
                     )}
                   </button>
-                  <div className="text-[10px] font-mono text-ink-meta uppercase text-center sm:text-right">
-                    Zero Spam • End-to-End Client Verified
-                  </div>
+
                 </div>
               </form>
             ) : (
@@ -573,7 +561,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
             <span>DIRECT INBOX: ADEPU.NISHANTH • ALL COMMUNICATIONS RESPECT PRIVACY</span>
           </div>
           <div className="text-ink-secondary">
-            {brandDossier.location.toUpperCase()} • 2026
+            Nishanth Adepu
           </div>
         </div>
       </div>

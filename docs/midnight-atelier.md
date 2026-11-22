@@ -1,11 +1,19 @@
-# Midnight Atelier
+# Nishanth — A World of Ideas
 
-Midnight Atelier is the current portfolio homepage. The earlier Dukaan Street experience remains available at `/dukaan`.
+The homepage is a seven-room exhibition built from the Midnight Atelier portal. Its HTML sections, navigation, project cases, journal entries and contact controls are independent of WebGL. Dukaan Street has its own experience at `/dukaan`.
 
-The homepage renders its copy and navigation on the server. The hero loads its React Three Fiber installation when the viewer enters the viewport. The metal ribs are procedural meshes, and a baked still from the same scene covers reduced-motion preferences, slow loading, and unavailable WebGL. The 3D canvas uses a capped device pixel ratio and renders in response to input.
+## Scene ownership
 
-## Portrait asset
+`src/components/exhibition/rooms.ts` defines the section anchors, camera angles, captions and posters. `Exhibition.tsx` tracks native scroll, manages selections, and moves a single persistent canvas host into the active display. `ExperienceCanvas.tsx` owns the camera, reflection map, demand rendering and lazy model imports. Architectural pieces and six room models live under `worlds/`. The original portrait installation lives in `src/components/atelier/PortalScene.tsx`.
 
-Place the original portrait at `public/images/atelier/nishanth.webp` and rebuild. Use the original photograph with a natural crop and no facial edits. The homepage checks for the asset at build time and uses it in the still composition and on the 3D portal mount. When the asset is absent, the architectural render supplies the hero visual.
+The project and journal controls open the existing accessible dialogs. Leadership selections lead to the associated initiative. The active section remains directly reachable through an HTML anchor.
 
-Verified project copy and links are in `src/content/dossier.ts`. Cases and journal entries share keyboard and focus behavior. Contact delivery still uses the existing Firebase and Resend route. See the root README for local execution and deployment settings.
+## Photography and fallback views
+
+The identity installation uses `public/images/atelier/nishanth.webp`. Its still is a render of the installation with that photograph mounted inside. The stills in `public/images/exhibition/` include the project, leadership and journal selection states. Regenerate the associated stills after changing a model, camera or portrait. Keep the source photograph's proportions and natural color.
+
+Reduced motion starts in still mode. The still-view switch saves the visitor's preference for the session. A failed or lost WebGL context returns the exhibition to its HTML content and still images.
+
+## Publication
+
+Build with `npm run build`. The Netlify project needs Next.js server runtime support for `/api/contact`. Compare the published production deploy commit with GitHub main and check the homepage, portrait, exhibition stills and `/dukaan` on the production domain. Firebase Admin and Resend configuration belongs in the hosting environment.

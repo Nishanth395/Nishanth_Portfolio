@@ -1,5 +1,6 @@
 "use client";
 
+import { Station } from "@/components/exhibition/Exhibition";
 import React from "react";
 import Image from "next/image";
 import { brandDossier } from "@/content/dossier";
@@ -16,6 +17,7 @@ export function CommercialProvenance() {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
+        <div className="room-opening">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-8 mb-10 hairline-b gap-6">
           <div>
             <div className="inline-flex items-center gap-2 mb-3">
@@ -39,6 +41,8 @@ export function CommercialProvenance() {
             <span className="hidden sm:inline text-hairline">|</span>
             <span className="hidden sm:inline">PAID BUSINESS ENGAGEMENT</span>
           </div>
+        </div>
+          <Station room="ventures" />
         </div>
 
         {/* Master Case Study Container */}
@@ -76,7 +80,7 @@ export function CommercialProvenance() {
 
               <div className="mt-6 pt-4 hairline-t flex items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-ink-meta">
-                  Status: Deployed &amp; Live
+                  Commercial website
                 </span>
                 <a
                   href={milestone.websiteUrl}
@@ -129,10 +133,10 @@ export function CommercialProvenance() {
                 <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-ink-meta">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block" />
                   <span className="text-emerald-700 dark:text-emerald-400 font-semibold hidden md:inline">
-                    LIVE PRODUCTION DEPLOYMENT
+                    CLIENT WEBSITE
                   </span>
                   <span className="text-emerald-700 dark:text-emerald-400 font-semibold md:hidden">
-                    LIVE
+                    WEBSITE
                   </span>
                 </div>
               </div>

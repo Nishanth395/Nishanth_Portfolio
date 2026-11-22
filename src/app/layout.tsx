@@ -10,12 +10,12 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Nishanth | AI Product Builder & Software Developer",
+  title: "Nishanth Adepu — A World of Ideas",
   description:
     "Personal digital brand & portfolio of Nishanth Adepu — AI product builder, software developer, and emerging technologist.",
-  metadataBase: new URL("https://nishanth.dev"),
+  metadataBase: new URL("https://nishanth-portfolio26.netlify.app"),
   openGraph: {
-    title: "Nishanth | AI Product Builder & Software Developer",
+    title: "Nishanth Adepu — A World of Ideas",
     description:
       "Building at the frontier of AI, software engineering, product architecture, and tech entrepreneurship.",
     type: "website",

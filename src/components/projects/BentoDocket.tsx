@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import type { ProjectCategory, ProjectDossier } from "@/types";
 import { brandDossier } from "@/content/dossier";
+import { Station, useExhibition } from "@/components/exhibition/Exhibition";
 import { ShopWalk } from "@/components/dukaan/ShopWalk";
 import { SceneNavigator } from "@/components/spatial/SceneNavigator";
 import { ProjectDetailModal } from "./ProjectDetailModal";
@@ -32,6 +33,7 @@ const projectGraphics: Partial<Record<string, React.ComponentType>> = {
 };
 
 export function BentoDocket({ experience = "street" }: { experience?: "atelier" | "street" }) {
+  const exhibition = useExhibition();
   const [category, setCategory] = useState<ProjectCategory>("All");
   const [preview, setPreview] = useState(0);
   const [selectedProject, setSelectedProject] = useState<ProjectDossier | null>(null);
@@ -50,6 +52,7 @@ export function BentoDocket({ experience = "street" }: { experience?: "atelier" 
             <p>Projects across AI, software, and digital products.</p>
             <a className="hero-contact" href="#project-index">Browse all projects <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
+          {experience === "atelier" && <Station room="work" onOpen={i=>setSelectedProject(brandDossier.projects[i])} />}
           {experience === "street" && projects.length > 0 && <SceneNavigator
             kind="work"
             label="Project gallery"
@@ -72,7 +75,12 @@ export function BentoDocket({ experience = "street" }: { experience?: "atelier" 
             const Graphic = projectGraphics[project.id];
 
             return (
-              <article className="work-card" key={project.id}>
+              <article className="work-card" key={project.id}
+                onFocus={experience === "atelier" ? () => exhibition.select(brandDossier.projects.indexOf(project), "work") : undefined}
+                onPointerEnter={experience === "atelier" ? event => {
+                  if (event.pointerType === "mouse") exhibition.select(brandDossier.projects.indexOf(project), "work");
+                } : undefined}>
+                {experience === "atelier" && <span className="work-catalog-index" aria-hidden="true">{project.index}</span>}
                 {Graphic && <div className="work-graphic"><Graphic /></div>}
                 <div className="work-card-content">
                   <p className="folio-label">{project.category}<span className="work-status">{project.statusLabel}</span></p>

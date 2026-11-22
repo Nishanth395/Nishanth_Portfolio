@@ -1,5 +1,6 @@
 "use client";
 
+import { Station } from "@/components/exhibition/Exhibition";
 import React from "react";
 import { brandDossier } from "@/content/dossier";
 import { Users, Mic, Sparkles, Compass, CheckCircle2, Award, Calendar, ArrowUpRight } from "lucide-react";
@@ -16,6 +17,7 @@ export function LeadershipInitiatives() {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
+        <div className="room-opening">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-8 mb-10 hairline-b gap-6">
           <div>
             <div className="inline-flex items-center gap-2 mb-3">
@@ -36,11 +38,13 @@ export function LeadershipInitiatives() {
             Cultivating builder culture, student entrepreneurship, and candid founder dialogues to bridge academic theory with real-world product execution.
           </p>
         </div>
+          <Station room="leadership" />
+        </div>
 
         {/* 2-Column Broad Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Card A: EDC at NIAT Kolhapur */}
-          <article className="p-6 sm:p-8 lg:p-10 bg-canvas hairline-border flex flex-col justify-between group relative">
+          <article id="leadership-item-0" tabIndex={-1} className="p-6 sm:p-8 lg:p-10 bg-canvas hairline-border flex flex-col justify-between group relative">
             <div>
               {/* Header Telemetry */}
               <div className="flex items-center justify-between pb-4 mb-6 hairline-b text-xs font-mono">
@@ -111,7 +115,7 @@ export function LeadershipInitiatives() {
           </article>
 
           {/* Card B: Inside Founder's Mind Podcast */}
-          <article className="p-6 sm:p-8 lg:p-10 bg-canvas hairline-border flex flex-col justify-between group relative">
+          <article id="leadership-item-1" tabIndex={-1} className="p-6 sm:p-8 lg:p-10 bg-canvas hairline-border flex flex-col justify-between group relative">
             <div>
               {/* Header Telemetry */}
               <div className="flex items-center justify-between pb-4 mb-6 hairline-b text-xs font-mono">

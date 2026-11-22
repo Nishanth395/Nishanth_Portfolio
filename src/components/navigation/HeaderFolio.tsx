@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { useExhibition } from "../exhibition/Exhibition";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const links = [
@@ -11,6 +12,7 @@ const links = [
 ];
 
 export function HeaderFolio({ atelier = false }: { atelier?: boolean }) {
+  const {active}=useExhibition();
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
 
@@ -29,7 +31,7 @@ export function HeaderFolio({ atelier = false }: { atelier?: boolean }) {
             Nishanth Adepu
           </a>
           <nav className={`folio-links ${open ? "folio-links-open" : ""}`} id="portfolio-navigation" aria-label="Primary navigation">
-            {(atelier ? [links[0], ["Commercial", "#ventures"], ["Leadership", "#leadership"], ["About", "#about"], links[2]] : links).map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
+            {(atelier ? [links[0], ["Commercial", "#ventures"], ["Leadership", "#leadership"], ["About", "#about"], links[2]] : links).map(([label, href]) => <a aria-current={atelier && href==="#"+active?"location":undefined} key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
             <a className="folio-mobile-contact" href="#contact" onClick={() => setOpen(false)}>Contact</a>
           </nav>
           <div className="folio-nav-actions">
