@@ -10,7 +10,7 @@ const links = [
   ["Notes", "#journal"],
 ];
 
-export function HeaderFolio() {
+export function HeaderFolio({ atelier = false }: { atelier?: boolean }) {
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
 
@@ -29,7 +29,7 @@ export function HeaderFolio() {
             Nishanth Adepu
           </a>
           <nav className={`folio-links ${open ? "folio-links-open" : ""}`} id="portfolio-navigation" aria-label="Primary navigation">
-            {links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
+            {(atelier ? [links[0], ["Commercial", "#ventures"], ["Leadership", "#leadership"], ["About", "#about"], links[2]] : links).map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
             <a className="folio-mobile-contact" href="#contact" onClick={() => setOpen(false)}>Contact</a>
           </nav>
           <div className="folio-nav-actions">

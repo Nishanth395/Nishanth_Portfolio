@@ -1,24 +1,28 @@
-import { StreetShell } from "@/components/dukaan/StreetShell";
 import { HeaderFolio } from "@/components/navigation/HeaderFolio";
-import { HeroExperience } from "@/components/hero/HeroExperience";
+import { AtelierHero } from "@/components/atelier/AtelierHero";
 import { BentoDocket } from "@/components/projects/BentoDocket";
-import { Studio } from "@/components/studio/Studio";
+import { CommercialProvenance } from "@/components/commercial/CommercialProvenance";
+import { LeadershipInitiatives } from "@/components/initiatives/LeadershipInitiatives";
+import { PersonalPerspective } from "@/components/perspective/PersonalPerspective";
 import { JournalDocket } from "@/components/journal/JournalDocket";
 import { CollaborationGateway } from "@/components/contact/CollaborationGateway";
 import { GlobalFooter } from "@/components/footer/GlobalFooter";
+import "./atelier.css";
 
 export default function HomePage() {
   return (
-    <StreetShell>
-      <HeaderFolio />
+    <div className="atelier">
+      <HeaderFolio atelier />
       <main id="main-content" tabIndex={-1}>
-        <HeroExperience />
-        <BentoDocket />
-        <Studio />
+        <AtelierHero />
+        <BentoDocket experience="atelier" />
+        <CommercialProvenance />
+        <LeadershipInitiatives />
+        <PersonalPerspective />
         <JournalDocket />
         <CollaborationGateway />
       </main>
       <GlobalFooter />
-    </StreetShell>
+    </div>
   );
 }

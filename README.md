@@ -1,6 +1,6 @@
-# Dukaan Street
+# Nishanth Adepu — Portfolio
 
-Dukaan Street is Nishanth Adepu’s portfolio, presented as a procedural Indian bazaar. A single React Three Fiber camera moves from dawn through four shopfronts to a chai stall and night-time contact shop. The page’s HTML contains the portfolio copy, projects, notes, and contact form in both 3D and 2D modes.
+[Midnight Atelier](docs/midnight-atelier.md) is the homepage. The earlier Dukaan Street experience remains available at `/dukaan`, presented as a procedural Indian bazaar. A single React Three Fiber camera moves from dawn through four shopfronts to a chai stall and night-time contact shop. The page’s HTML contains the portfolio copy, projects, notes, and contact form in both 3D and 2D modes.
 
 ## Run locally
 

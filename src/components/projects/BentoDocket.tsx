@@ -31,7 +31,7 @@ const projectGraphics: Partial<Record<string, React.ComponentType>> = {
   "sri-balaji-interiors": SriBalajiInteriorsGraphic,
 };
 
-export function BentoDocket() {
+export function BentoDocket({ experience = "street" }: { experience?: "atelier" | "street" }) {
   const [category, setCategory] = useState<ProjectCategory>("All");
   const [preview, setPreview] = useState(0);
   const [selectedProject, setSelectedProject] = useState<ProjectDossier | null>(null);
@@ -42,7 +42,7 @@ export function BentoDocket() {
 
   return (
     <section id="work" aria-labelledby="work-heading" className="hairline-b py-12 sm:py-16 lg:py-20">
-      <ShopWalk />
+      {experience === "street" && <ShopWalk />}
       <div className="folio-shell">
         <div className="spatial-work-layout">
           <div className="work-heading">
@@ -50,7 +50,7 @@ export function BentoDocket() {
             <p>Projects across AI, software, and digital products.</p>
             <a className="hero-contact" href="#project-index">Browse all projects <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
-          {projects.length > 0 && <SceneNavigator
+          {experience === "street" && projects.length > 0 && <SceneNavigator
             kind="work"
             label="Project gallery"
             items={projects.map((project) => ({ title: project.name, detail: project.category }))}
@@ -67,7 +67,7 @@ export function BentoDocket() {
           ))}
         </div>
         <p className="sr-only" role="status">{projects.length} projects shown</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+        <div className="work-grid grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
           {projects.map((project) => {
             const Graphic = projectGraphics[project.id];
 
@@ -75,7 +75,7 @@ export function BentoDocket() {
               <article className="work-card" key={project.id}>
                 {Graphic && <div className="work-graphic"><Graphic /></div>}
                 <div className="work-card-content">
-                  <p className="folio-label">{project.category}</p>
+                  <p className="folio-label">{project.category}<span className="work-status">{project.statusLabel}</span></p>
                   <h3>{project.name}</h3>
                   <p className="work-card-summary">{project.tagline}</p>
                   <div className="work-card-actions">

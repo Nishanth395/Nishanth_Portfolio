@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/newsreader/wght-italic.css";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/bricolage-grotesque";
