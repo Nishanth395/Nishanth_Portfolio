@@ -214,3 +214,58 @@
   .atelier .work-catalog-index {display:block;padding:21px 0;color:#485672;font:500 .7rem "JetBrains Mono Variable",monospace;}
   .atelier #work .work-card-content {padding:16px 0 20px;}
 }
+
+/* Portrait cover and editorial spreads */
+.edition .cover {color:#f3ecdf;background:#111921;overflow:hidden;}
+.edition .cover-layout {display:grid;grid-template-columns:1fr 1.04fr;align-items:center;gap:4%;padding-block:clamp(36px,5vw,78px);}
+.edition .cover-byline,.edition .story-heading>p,.edition .initiative>p:first-child {font:550 .81rem/1.5 "Inter Variable",sans-serif;letter-spacing:.025em;}
+.cover-byline span {margin-inline:6px;color:#a78455;}
+.edition .cover h1 {font:470 clamp(6rem,10.8vw,11.6rem)/.80 "Newsreader Variable",Georgia,serif;letter-spacing:-.073em;margin:clamp(32px,4vw,68px) 0 24px;}
+.edition .cover h1 em {color:#e4bb79;font-weight:420;}
+.cover-note {max-width:37ch;font:400 clamp(1.03rem,1.38vw,1.37rem)/1.55 "Inter Variable",sans-serif;color:#dcd9d0;}
+.cover-actions {display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;}
+.cover-actions a,.client-print span {display:inline-flex;gap:14px;align-items:center;min-height:44px;font-size:.87rem;font-weight:650;border-bottom:1px solid currentColor;}
+.edition .world-station {border:0;box-shadow:none;}
+.edition .world-image::after {content:none;}
+.edition .world-station figcaption {min-height:48px;}
+.edition [data-room="home"] {background:transparent;align-self:center;}
+.edition [data-room="home"] .world-image {aspect-ratio:1.05;background:radial-gradient(ellipse at 58% 42%,#5e5345 0,#343535 39%,#111921 73%);}
+.edition [data-room="home"] figcaption {border:0;padding:0 8%;color:#c8c1b7;}
+.edition [data-room="home"] figcaption strong {font:italic 500 1.12rem "Newsreader Variable",serif;}
+.edition .story {padding:clamp(56px,7vw,114px) max(calc((100% - 1320px)/2),clamp(18px,4.5vw,66px));}
+.edition .story-heading {margin-bottom:32px;}
+.edition .story-heading>p {margin-bottom:18px;}
+.edition :is(#ventures,#leadership,#about) .story-heading h2 {font-size:clamp(3.3rem,6.8vw,7.4rem);line-height:.93;letter-spacing:-.061em;}
+.edition .story-heading em {font-weight:420;}
+.edition .client-story {background:#e8e2d7;color:#242626;}
+.edition .client-spread,.edition .campus-spread,.edition #about>.personal-spread:first-child {display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,80px);align-items:start;width:100%;}
+.edition .client-print {display:block;position:sticky;top:100px;}
+.client-print img {display:block;width:100%;height:auto;box-shadow:0 15px 32px -20px #31271e;}
+.client-print span {margin-top:.6rem;}
+.edition .story h3 {font:500 clamp(2rem,3.2vw,3.5rem)/1.05 "Newsreader Variable",serif;letter-spacing:-.04em;}
+.edition .story-copy>p,.edition .initiative>p,.edition .story details {font:400 1rem/1.7 "Inter Variable",sans-serif;margin:16px 0;}
+.edition .story details {border-top:1px solid #85817c70;padding-top:9px;}
+.edition .story details summary {cursor:pointer;padding:8px 0;font-weight:600;}
+.edition .story details p,.edition .story details li {margin:10px 0;}
+.edition #ventures .world-station,.edition #leadership .world-station,.edition #about .world-station {position:relative;top:auto;grid-area:auto;}
+.edition .client-story .world-station {margin-top:32px;}
+.edition #leadership {background:#202c32;color:#eee9df;}
+.edition .campus-spread {grid-template-columns:1fr 1fr;}
+.edition .initiative {padding-block:16px 24px;border-top:1px solid #807e72;}
+.edition .initiative>p:first-child {color:#dbc094;}
+.edition #about {background:#dfd5c5;color:#282b2d;}
+.edition #about>.personal-spread:first-child {grid-template-columns:.88fr 1.12fr;}
+.edition #about>.personal-spread:first-child>* {grid-column:auto;}
+.edition #work {background:#eee9de;border-top:0;}
+.edition #work .work-heading p,.edition #work .work-heading .hero-contact {display:none;}
+@media(max-width:800px){
+ .edition .cover-layout {grid-template-columns:minmax(0,1fr);gap:20px;padding-block:32px 16px;}
+ .edition .cover h1 {font-size:clamp(5.6rem,18vw,8rem);margin:28px 0 15px;}
+ .edition .cover h1 br {display:none;}
+ .edition .cover h1 em {display:block;margin-left:.31em;}
+ .edition .cover-actions {margin-top:12px;}
+ .edition [data-room="home"] .world-image {aspect-ratio:1.35;}
+ .edition .client-spread,.edition .campus-spread,.edition #about>.personal-spread:first-child {grid-template-columns:minmax(0,1fr);}
+ .edition .client-print {position:static;}
+ .edition .story-heading {margin-bottom:24px;}
+}

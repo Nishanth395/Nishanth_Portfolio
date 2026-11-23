@@ -442,10 +442,10 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-cobalt text-white font-mono text-xs sm:text-sm uppercase tracking-widest hover:bg-cobalt-hover transition-colors shadow-sm disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-cobalt"
                   >
                     {isSubmitting ? (
-                      <span>Transmitting Dispatch...</span>
+                      <span>Sending…</span>
                     ) : (
                       <>
-                        <span>Format &amp; Send Dispatch</span>
+                        <span>Send message</span>
                         <Send className="w-4 h-4" />
                       </>
                     )}
@@ -458,7 +458,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
               <div className="p-6 sm:p-8 bg-canvas hairline-border space-y-6 animate-in fade-in duration-200">
                 <div className="flex items-center gap-3 pb-4 hairline-b text-cobalt font-mono text-xs uppercase font-semibold">
                   <CheckCircle2 className="w-5 h-5 text-cobalt shrink-0" />
-                  <span>DISPATCH CONFIRMED &amp; RECORDED</span>
+                  <span>Message received</span>
                 </div>
 
                 {/* Notification Delivery Telemetry */}
@@ -478,8 +478,8 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
                     <div className="space-y-0.5">
                       <div className="font-semibold uppercase tracking-wider text-[11px]">
                         {submissionResult.emailNotificationSent
-                          ? "DATABASE RECORDED & EMAIL NOTIFICATION ROUTED"
-                          : "DATABASE RECORDED • EMAIL NOTIFICATION DELAYED"}
+                          ? "Message saved and email sent"
+                          : "Message saved. Email notification delayed."}
                       </div>
                       <div className="text-[11px] opacity-90 leading-relaxed font-sans">
                         {submissionResult.message}
@@ -495,7 +495,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
 
                 <div className="space-y-2 text-ink-primary">
                   <div className="font-mono text-xs text-ink-meta uppercase tracking-wider">
-                    Dispatch Summary:
+                    Your message
                   </div>
                   <div className="p-4 bg-surface hairline-border font-mono text-xs space-y-1.5">
                     <div><span className="text-ink-meta">SENDER:</span> {submittedData.name} ({submittedData.email})</div>
@@ -512,7 +512,7 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
                 <div className="p-4 bg-surface/60 hairline-border text-xs font-mono text-ink-secondary space-y-2">
                   <div className="font-semibold text-ink-primary flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-cobalt" />
-                    <span>Guaranteed Direct Delivery Route</span>
+                    <span>Email directly</span>
                   </div>
                   <p className="text-[11px] leading-relaxed">
                     To guarantee immediate delivery without third-party email drops, you can send this directly via your email client or copy the formatted dispatch text.
@@ -554,16 +554,6 @@ Sent to Nishanth Adepu (adepunishanth1@gmail.com)`;
           </div>
         </div>
 
-        {/* Section Footnote */}
-        <div className="mt-10 p-4 bg-surface/50 hairline-border flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-ink-meta uppercase tracking-wider">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-cobalt inline-block" />
-            <span>DIRECT INBOX: ADEPU.NISHANTH • ALL COMMUNICATIONS RESPECT PRIVACY</span>
-          </div>
-          <div className="text-ink-secondary">
-            Nishanth Adepu
-          </div>
-        </div>
       </div>
     </section>
   );

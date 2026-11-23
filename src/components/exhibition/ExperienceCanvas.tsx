@@ -73,7 +73,7 @@ function Gallery({ room, selected, onSelect, onReady, onFailure }: SceneProps) {
     <directionalLight position={[-3,5,4]} intensity={3.1} color="#fff0db"/>
     <directionalLight position={[3,2,-3]} intensity={3.3} color="#86a7ff"/>
     <Suspense fallback={null}><Model selected={selected} onSelect={onSelect}/><Ready key={room} report={onReady}/></Suspense>
-    <gridHelper args={[13,44,"#526783","#354359"]} position-y={-.26} material-transparent material-opacity={.48}/>
+    {room !== "home" && <gridHelper args={[13,44,"#526783","#354359"]} position-y={-.26} material-transparent material-opacity={.48}/>}
   </>;
 }
 function Ready({report}:{report:()=>void}) {

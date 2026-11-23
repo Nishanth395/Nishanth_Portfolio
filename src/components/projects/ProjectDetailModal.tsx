@@ -43,7 +43,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
         <div className="hairline-b bg-surface px-4 sm:px-6 py-3.5 flex items-center justify-between select-none shrink-0">
           <div className="flex items-center gap-3">
             <span className="font-mono text-xs text-cobalt font-semibold">
-              DOSSIER #{project.index}
+              Case study
             </span>
             <span className="text-hairline">|</span>
             <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-ink-meta truncate">
@@ -51,7 +51,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
             </span>
             {project.isCommercialDelivery && (
               <span className="hidden sm:inline-block px-2 py-0.5 bg-cobalt/10 text-cobalt hairline-border font-mono text-[9px] uppercase tracking-wider font-semibold">
-                COMMERCIAL CLIENT DELIVERY
+                Client work
               </span>
             )}
           </div>
@@ -64,7 +64,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
               className="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-raised hairline-border font-mono text-xs uppercase tracking-wider text-ink-primary hover:text-cobalt hover:border-cobalt transition-colors focus-visible:outline-2 focus-visible:outline-cobalt"
               aria-label="Close project dossier"
             >
-              <span>[ESC / CLOSE]</span>
+              <span>Close</span>
               <X className="w-3.5 h-3.5" aria-hidden="true" />
             </button>
           </div>
@@ -141,8 +141,8 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
               <div className="space-y-1">
                 <div className="font-mono text-[10px] uppercase tracking-wider text-cobalt font-semibold">
                   {project.isCommercialDelivery
-                    ? "COMMERCIAL CLIENT DELIVERY"
-                    : "PUBLIC DEPLOYMENT // PROTOTYPE DEMO"}
+                    ? "Client work"
+                    : "Project demo"}
                 </div>
                 <p className="font-sans text-xs text-ink-secondary leading-relaxed">
                   {project.deploymentStatusNote}
@@ -335,7 +335,7 @@ export function ProjectDetailModal({ project, isOpen, onClose, street = false }:
         <div className="hairline-t bg-surface px-4 sm:px-6 py-3 flex items-center justify-between text-xs font-mono text-ink-meta shrink-0">
           <div className="flex items-center gap-2">
             <Compass className="w-3.5 h-3.5 text-cobalt" />
-            <span>NISHANTH PORTFOLIO // PROJECT DOSSIER</span>
+            <span>Nishanth Adepu</span>
           </div>
           <button
             type="button"

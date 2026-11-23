@@ -76,9 +76,8 @@ export function Station({room,onOpen}:{room:RoomId;onOpen?:(index:number)=>void}
         alt={room==="home"?"Nishanth Adepu in the metallic portrait portal":config.title}
         loading={room==="home"?"eager":"lazy"} decoding="async" />
       <div className="world-mount" id={"mount-"+room}/>
-      <div className="world-label"><span>A world of ideas</span><span>{String(index+1).padStart(2,"0")} / 07</span></div>
     </div>
-    <figcaption><div><small>{config.name}</small><strong>{items[pick]??config.title}</strong></div>
+    <figcaption><div><strong>{items[pick]??config.title}</strong></div>
       {current&&available&&<button type="button" onClick={toggle} aria-pressed={live}>{live?"Still view":"3D view"}</button>}
     </figcaption>
     {items.length>0&&<div className="exhibit-controls">
